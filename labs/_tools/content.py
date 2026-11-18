@@ -23,7 +23,7 @@ CATEGORIES = {
 PEOPLE = {
     "wael": "وائل المطوع",      # Supply and Imports director, business data executive (labs)
     "maha": "مها الحديثي",      # Quality and Laboratories director (slide examples)
-    "khalid": "خالد السبهان",   # Farmer Support director (follow-up pack)
+    "khalid": "خالد السبهان",   # Outlets and Distribution director (follow-up pack)
     "lina": "لينا الفرج",       # data classification reviewer, Data Management Office
     "osama": "أسامة الزهراني",  # business data steward, information security
     "arwa": "أروى المنصور",     # procurement analyst, data user
