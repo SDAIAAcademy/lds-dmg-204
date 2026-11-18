@@ -1,37 +1,68 @@
 <article class="lab" data-lab="1.3">
-  <div class="box goal">
-    <h3>الهدف</h3>
-    <p>REPLACE: في النهاية يستطيع المشاركون …</p>
-  </div>
-
-  <h2>ما تحتاجه</h2>
+<div class="box goal">
+  <h3>ستخرج من هذا المختبر بـ</h3>
   <ul>
-    <li>REPLACE: الملفات والأداة والحساب التي يستخدمها المختبر</li>
+    <li>نسبة الاتفاق ومعامل كابا بين مصنفين، وسجل يحسم كل خلاف بدليل.</li>
+    <li>مستوى ومبرر لثلاث مجموعات بيانات مجمّعة.</li>
   </ul>
+</div>
 
-  <div class="step">
-    <h3>REPLACE: الخطوة الأولى <span class="min">15 د</span></h3>
-    <p>REPLACE: ما يفعله المشارك ولماذا، في جملتين</p>
-    <div class="prompt" data-tool="اكتشاف البيانات الشخصية">REPLACE: الأمر الذي ينسخه المشاركون، والأجزاء التي يغيّرونها <span class="ph">ملوّنة</span></div>
-  </div>
+<h2>ما تحتاجه</h2>
+<div class="files">
+  <a href="files/reconcile/peer_a.xlsx" download><b>reconcile/peer_a.xlsx</b><span>تقدير الزميل (أ) للأصول العشرين.</span></a>
+  <a href="files/reconcile/peer_b.xlsx" download><b>reconcile/peer_b.xlsx</b><span>تقدير الزميل (ب) للأصول نفسها.</span></a>
+  <a href="files/reconcile/reconcile.xlsx" download><b>reconcile/reconcile.xlsx</b><span>ورقة الخلافات وورقة المجموعات المجمّعة.</span></a>
+  <a href="files/rating/impact_guide.txt"><b>rating/impact_guide.txt</b><span>دليل تقييم الأثر.</span></a>
+</div>
+<p class="small">إن أنهيت المختبر 1.2 مع زميل، قارن ملفيكما بدل الملفين الجاهزين؛ الفحص في الخطوة 4 مبني على الملفين الجاهزين.</p>
 
-  <div class="step">
-    <h3>REPLACE: الخطوة الثانية <span class="min">10 د</span></h3>
-    <p>REPLACE: ما يفعله المشارك ولماذا، في جملتين</p>
-  </div>
+<h2>الخطوات</h2>
 
-  <div class="step stretch">
-    <h3>✱ إضافي</h3>
-    <p>REPLACE: توسعة لمن ينهي مبكرًا</p>
-  </div>
+<div class="step">
+  <h3>1 · قياس الاتفاق <span class="min">6 د</span></h3>
+  <p>شغّل أداة الاتفاق. اقرأ النسبة ومعامل كابا، وقائمة الخلافات.</p>
+  <pre class="code"><code>uv run kit/agreement.py files/reconcile/peer_a.xlsx files/reconcile/peer_b.xlsx</code></pre>
+</div>
 
-  <h2>أسئلة تحقق</h2>
-  <ol class="checks">
-    <li>REPLACE: سؤال يبيّن أن المختبر نجح</li>
-  </ol>
+<div class="step">
+  <h3>2 · حسم الخلافات <span class="min">18 د</span></h3>
+  <p>لكل خلاف سطر في ورقة <code>disagreements</code>: المستوى المتفق عليه، والدليل من وصف الأصل (جملة لا رأي)، والخطوة التي حسمت. إن لم يحسمه الدليل، فالمستوى الأعلى حتى يُصعَّد.</p>
+</div>
 
-  <details class="instructor">
-    <summary>للمدرّب</summary>
-    <p>REPLACE: مفتاح الإجابة والفخاخ والأخطاء الشائعة</p>
-  </details>
+<div class="step">
+  <h3>3 · المجموعات المجمّعة <span class="min">14 د</span></h3>
+  <p>في ورقة <code>aggregations</code> ثلاث مجموعات. لكل منها: الحد الأدنى (أعلى مستوى بين مكوّناتها)، ثم أثر المجموعة كلها كما لو كانت أصلًا جديدًا، ثم المستوى والمبرر.</p>
+</div>
+
+<div class="step">
+  <h3>4 · الفحص <span class="min">6 د</span></h3>
+  <pre class="code"><code>uv run kit/reconcile_check.py files/reconcile/reconcile.xlsx</code></pre>
+</div>
+
+<div class="step">
+  <h3>5 · الإفراط والتفريط <span class="min">6 د</span></h3>
+  <p>لأصلين من الخلافات، اكتب سطرًا: ماذا يخسر من يرفع المستوى بلا حاجة؟ وماذا يخسر من يخفضه؟</p>
+</div>
+
+<div class="step stretch">
+  <h3>✱ تمرين إضافي</h3>
+  <p>احسب الاتفاق بين ملفك من المختبر 1.2 وأحد ملفي الزميلين، وفسّر لماذا ينخفض معامل كابا عن النسبة.</p>
+</div>
+
+<h2>أسئلة تحقق</h2>
+<ol class="checks">
+  <li>ما نسبة الاتفاق ومعامل كابا؟ ولماذا الثاني أقل؟</li>
+  <li>في أي أصل اتفق الزميلان وأخطآ معًا؟ ماذا يعني ذلك لمراجعة التصنيف؟</li>
+  <li>أي مجموعة مجمّعة رفعها التجميع، وأي معلومة جديدة ظهرت حين اجتمع مكوّناها؟</li>
+</ol>
+
+<details class="instructor">
+  <summary>للمدرّب</summary>
+  <ul>
+    <li>المرجع: <code>solutions/reference/reconcile_reference.xlsx</code> و<code>solutions/D1_3_reconcile.md</code>. الاتفاق 14 من 20 (70٪)، وكابا 0.52. الخلافات الستة: A05 وA13 وA14 وA17 وA19 وA20.</li>
+    <li>الحسم: A05 سري للغاية، A13 مقيد، A14 سري (ويُقبل مقيد)، A17 عام، A19 مقيد، A20 عام. واتفق الزميلان على A02 «عام» وكلاهما مخطئ: الاتفاق ليس صوابًا.</li>
+    <li>المجموعات: G1 سري (التجميع يرفع: رحلات الشاحنات مع السعة المنشورة تكشف امتلاء المواقع)، G2 مقيد (الحد الأدنى، ولا رفع)، G3 مقيد (حذف الأسماء لا يُنزل حين تكشف خلية مستوردًا واحدًا).</li>
+    <li>من يرفع كل مجموعة مجمّعة مستوى «احتياطًا» يحتاج سؤالًا: ما المعلومة الجديدة التي ظهرت ولم تكن في أي مكوّن؟</li>
+  </ul>
+</details>
 </article>
