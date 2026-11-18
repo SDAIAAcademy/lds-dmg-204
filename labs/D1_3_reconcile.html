@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-ax="lab" data-track="executives">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المختبر 1.3 · المطابقة مع زميل وأثر التجميع · تصنيف البيانات في التطبيق العملي</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="D1_3_reconcile.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="top"><div class="logo"></div><nav><a href="../index.html">صفحة المقرر</a><a href="../slides/day1.html#lab-1-3">العودة إلى الشرائح</a></nav></div>
+<span class="tag">المختبر 1.3</span>
+<h1>المطابقة مع زميل وأثر التجميع</h1>
+<p>تقارن تقديرين للأصول العشرين، وتحسم كل خلاف بدليل، ثم تصنف ثلاث مجموعات بيانات مجمّعة: واحدة يرفعها التجميع، وواحدة لا يرفعها، وواحدة لا يُنزلها حذف الأسماء.</p>
+<div class="meta"><span>50 دقيقة</span><span>اليوم 1</span><span>الجلسة 3: الخلاف والتجميع</span></div>
+</div>
+</header>
+<main class="wrap">
+<article class="lab" data-lab="1.3">
+<div class="box goal">
+  <h3>ستخرج من هذا المختبر بـ</h3>
+  <ul>
+    <li>نسبة الاتفاق ومعامل كابا بين مصنفين، وسجل يحسم كل خلاف بدليل.</li>
+    <li>مستوى ومبرر لثلاث مجموعات بيانات مجمّعة.</li>
+  </ul>
+</div>
+
+<h2>ما تحتاجه</h2>
+<div class="files">
+  <a href="files/reconcile/peer_a.xlsx" download><b>reconcile/peer_a.xlsx</b><span>تقدير الزميل (أ) للأصول العشرين.</span></a>
+  <a href="files/reconcile/peer_b.xlsx" download><b>reconcile/peer_b.xlsx</b><span>تقدير الزميل (ب) للأصول نفسها.</span></a>
+  <a href="files/reconcile/reconcile.xlsx" download><b>reconcile/reconcile.xlsx</b><span>ورقة الخلافات وورقة المجموعات المجمّعة.</span></a>
+  <a href="files/rating/impact_guide.txt"><b>rating/impact_guide.txt</b><span>دليل تقييم الأثر.</span></a>
+</div>
+<p class="small">إن أنهيت المختبر 1.2 مع زميل، قارن ملفيكما بدل الملفين الجاهزين؛ الفحص في الخطوة 4 مبني على الملفين الجاهزين.</p>
+
+<h2>الخطوات</h2>
+
+<div class="step">
+  <h3>1 · قياس الاتفاق <span class="min">6 د</span></h3>
+  <p>شغّل أداة الاتفاق. اقرأ النسبة ومعامل كابا، وقائمة الخلافات.</p>
+  <pre class="code"><code>uv run kit/agreement.py files/reconcile/peer_a.xlsx files/reconcile/peer_b.xlsx</code></pre>
+</div>
+
+<div class="step">
+  <h3>2 · حسم الخلافات <span class="min">18 د</span></h3>
+  <p>لكل خلاف سطر في ورقة <code>disagreements</code>: المستوى المتفق عليه، والدليل من وصف الأصل (جملة لا رأي)، والخطوة التي حسمت. إن لم يحسمه الدليل، فالمستوى الأعلى حتى يُصعَّد.</p>
+</div>
+
+<div class="step">
+  <h3>3 · المجموعات المجمّعة <span class="min">14 د</span></h3>
+  <p>في ورقة <code>aggregations</code> ثلاث مجموعات. لكل منها: الحد الأدنى (أعلى مستوى بين مكوّناتها)، ثم أثر المجموعة كلها كما لو كانت أصلًا جديدًا، ثم المستوى والمبرر.</p>
+</div>
+
+<div class="step">
+  <h3>4 · الفحص <span class="min">6 د</span></h3>
+  <pre class="code"><code>uv run kit/reconcile_check.py files/reconcile/reconcile.xlsx</code></pre>
+</div>
+
+<div class="step">
+  <h3>5 · الإفراط والتفريط <span class="min">6 د</span></h3>
+  <p>لأصلين من الخلافات، اكتب سطرًا: ماذا يخسر من يرفع المستوى بلا حاجة؟ وماذا يخسر من يخفضه؟</p>
+</div>
+
+<div class="step stretch">
+  <h3>✱ تمرين إضافي</h3>
+  <p>احسب الاتفاق بين ملفك من المختبر 1.2 وأحد ملفي الزميلين، وفسّر لماذا ينخفض معامل كابا عن النسبة.</p>
+</div>
+
+<h2>أسئلة تحقق</h2>
+<ol class="checks">
+  <li>ما نسبة الاتفاق ومعامل كابا؟ ولماذا الثاني أقل؟</li>
+  <li>في أي أصل اتفق الزميلان وأخطآ معًا؟ ماذا يعني ذلك لمراجعة التصنيف؟</li>
+  <li>أي مجموعة مجمّعة رفعها التجميع، وأي معلومة جديدة ظهرت حين اجتمع مكوّناها؟</li>
+</ol>
+
+<details class="instructor">
+  <summary>للمدرّب</summary>
+  <ul>
+    <li>المرجع: <code>solutions/reference/reconcile_reference.xlsx</code> و<code>solutions/D1_3_reconcile.md</code>. الاتفاق 14 من 20 (70٪)، وكابا 0.52. الخلافات الستة: A05 وA13 وA14 وA17 وA19 وA20.</li>
+    <li>الحسم: A05 سري للغاية، A13 مقيد، A14 سري (ويُقبل مقيد)، A17 عام، A19 مقيد، A20 عام. واتفق الزميلان على A02 «عام» وكلاهما مخطئ: الاتفاق ليس صوابًا.</li>
+    <li>المجموعات: G1 سري (التجميع يرفع: رحلات الشاحنات مع السعة المنشورة تكشف امتلاء المواقع)، G2 مقيد (الحد الأدنى، ولا رفع)، G3 مقيد (حذف الأسماء لا يُنزل حين تكشف خلية مستوردًا واحدًا).</li>
+    <li>من يرفع كل مجموعة مجمّعة مستوى «احتياطًا» يحتاج سؤالًا: ما المعلومة الجديدة التي ظهرت ولم تكن في أي مكوّن؟</li>
+  </ul>
+</details>
+</article>
+<nav class="pager"><a href="D1_2_rating.html" rel="prev">→ المختبر السابق</a><a href="D1_4_handling.html" rel="next">المختبر التالي ←</a></nav>
+</main>
+<footer><div class="wrap">أكاديمية سدايا · مسار التنفيذيين والقادة · تصنيف البيانات في التطبيق العملي<br><span class="muted">إصدار المقرر 2027.1.0 · المحرّك 1.0.0 · بُني في ⁦2026-11-18⁩ · الإيداع 0a3c3bb</span></div></footer>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-18T00:44:44Z","version":"2027.1.0","commit":"0a3c3bb"},"course":{"id":"lds-dmg-204","code":"LDS-DMG-204","title":"تصنيف البيانات في التطبيق العملي","track":"executives","lang":"ar","dir":"rtl","url":"https://sdaiaacademy.github.io/lds-dmg-204/","repo":"SDAIAAcademy/lds-dmg-204","home":"../index.html"},"lab":{"id":"1.3","title":"المطابقة مع زميل وأثر التجميع","summary":"تقارن تقديرين للأصول العشرين، وتحسم كل خلاف بدليل، ثم تصنف ثلاث مجموعات بيانات مجمّعة: واحدة يرفعها التجميع، وواحدة لا يرفعها، وواحدة لا يُنزلها حذف الأسماء.","minutes":50,"day":1,"unit":"اليوم 1","session":3,"deck":"../slides/day1.html#lab-1-3","prev":"D1_2_rating.html","next":"D1_4_handling.html","alt":{}},"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":null,"llms":"../llms.txt"},"tasks":[],"tools":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

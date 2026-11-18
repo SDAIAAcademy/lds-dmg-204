@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-ax="deck" data-track="executives">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اليوم 1 · من الحصر إلى المستوى إلى الضابط · تصنيف البيانات في التطبيق العملي</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="day1.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<div class="deck" data-course="تصنيف البيانات في التطبيق العملي" data-track="executives" data-day="اليوم 1">
+<section class="slide title" id="title" data-auto="title" data-label="الترحيب" data-n="1">
+  <div class="kicker">أكاديمية سدايا · تصنيف البيانات في التطبيق العملي</div>
+  <h1>من الحصر إلى المستوى إلى الضابط</h1>
+  <p class="lead mt">اليوم 1: أربع جلسات: ما الذي نصنفه، والأثر والمستوى، والخلاف والتجميع، والضوابط التي تتبع المستوى</p>
+  <div class="meta"><span class="track">مسار التنفيذيين والقادة</span><span>يومان تدريبيان + يوم للمشروع الختامي</span><span>4 جلسات · 4 مختبرات</span><span>LDS-DMG-204</span></div>
+  <aside class="notes"><p>ابدأ بسؤال: في جهتك، من قرر آخر مرة أن ملفًا ما «سري»؟ وعلى أي أساس؟ الإجابات المعتادة: «هكذا وصلنا»، أو «احتياطًا». يوم ونصف عن استبدال الاحتياط بتقييم أثر يُراجع ويُسجل ويُقاس.</p><p>الحالة: هيئة الجَرين للمخزون الغذائي، جهة افتراضية. أمثلة الشرائح من قطاع الجودة والمختبرات، والمختبرات كلها على إدارة الإمداد والاستيراد، فلا ترى القاعة إجابة مختبر قبل أن تبدأه.</p></aside>
+</section>
+
+<section class="slide" id="agenda" data-auto="agenda" data-label="جدول اليوم" data-n="2">
+  <div class="kicker">اليوم</div>
+  <h2>من الحصر إلى المستوى إلى الضابط</h2>
+  <div class="agenda"><div class="item"><div><b>الجلسة 1 · ما الذي نصنفه</b><small>الأصل وحدوده، والنسخ والبيانات المستلمة، والفرق بين التصنيف وحساسية البيانات الشخصية</small></div></div><div class="item"><div><b>الجلسة 2 · الأثر والمستوى</b><small>فئات الأثر ودرجاته، والخطوتان 4 و5 للأثر المنخفض، وفئات المقيد، والمبرر في جملة</small></div></div><div class="item"><div><b>الجلسة 3 · الخلاف والتجميع</b><small>لماذا يختلف المصنفون، وقياس الاتفاق، والحسم بالدليل، والتجميع الذي يرفع المستوى</small></div></div><div class="item"><div><b>الجلسة 4 · الضوابط تتبع المستوى</b><small>علامات الحماية، والوصول، والتشفير، والاحتفاظ، والإتلاف، والأنظمة المعتمدة لكل مستوى</small></div></div></div>
+  <aside class="notes"><p>أربع جلسات، في كل منها أربعون دقيقة للمفاهيم ونقطة التحقق، ثم مختبر من خمسين دقيقة. الاستراحات بزر B. نصف اليوم الثاني للسجل وللوسم الآلي، ثم الاختبار المراقب.</p></aside>
+</section>
+
+<section class="slide" id="setup-check" data-label="قبل أن نبدأ" data-n="3">
+  <div class="kicker">قبل أن نبدأ</div>
+  <h2>جدول بيانات، وأداة <span class="en">uv</span>، ومجلد المختبرات: هذا كل التجهيز</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>حاسوب محمول، أو <span class="en">Google Colab</span> لمن لا يستطيع التثبيت</li>
+      <li>جدول بيانات يفتح ملفات <span class="ltr">xlsx</span> (<span class="en">LibreOffice Calc</span> أو <span class="en">Microsoft Excel</span>)</li>
+      <li>أداة <span class="en">uv</span> لتشغيل أدوات الفحص، ومجلد <span class="ltr">labs</span> من المقرر</li>
+      <li>لا حساب، ولا نموذج يُنزَّل، ولا مفتاح</li>
+    </ul>
+    <div class="card c-teal"><h4>اختبار دقيقة</h4><p class="small">في مجلد <span class="ltr">labs</span> شغّل:</p><pre class="code"><code>uv sync
+uv run kit/maysam.py</code></pre><p class="small mb0">إن طبع «200 items labelled»، فأنت جاهز.</p></div>
+  </div>
+  <aside class="notes"><p>شغّل <span class="ltr">uv sync</span> قبل الجلسة الأولى: التثبيت الأول يحتاج اتصالًا ودقيقة. الأدوات تقرأ ملفات الجداول وتطبع [OK] و[FIX]، ولا تكتب في ملفات المشارك.</p><p>قاعدة المقرر: لا يُلصق شيء من ملفات المختبرات في أي مساعد ذكاء اصطناعي. الملفات اصطناعية، لكن العادة هي ما نتدرب عليه: ما لم يُصنف يُعامل مقيدًا، والمقيد لا يدخل أدوات الذكاء الاصطناعي التوليدي.</p></aside>
+</section>
+
+<!-- الجلسة 1 -->
+
+<section class="slide section" id="s1" data-auto="section" data-session="1" data-n="4">
+  <div class="kicker">الجلسة 1</div>
+  <h1>ما الذي نصنفه</h1>
+  <ul class="bullets outcomes"><li>تحدد أصول البيانات من سجل الأنظمة ومخزن الملفات، مهيكلة وشبه مهيكلة وغير مهيكلة</li><li>تفرق بين الأصل وموقع من مواقعه، وتعامل النسخ والبيانات المستلمة بحسب ذلك</li><li>تفصل سؤال البيانات الشخصية عن سؤال مستوى التصنيف</li></ul>
+  <div class="sess-no">01</div>
+</section>
+
+<section class="slide" id="recap-101" data-lo="LO1" data-n="5" data-session="1">
+  <div class="kicker">من مقرر الأسس</div>
+  <h2>ما تعرفه: أربعة مستويات، والأثر يقود إليها</h2>
+  <table class="t">
+    <tr><th>الأثر لو أُفصح عنها</th><th>المستوى</th><th>من مثال السياسة</th></tr>
+    <tr><td>عالٍ</td><td><b>سري للغاية</b></td><td>تحركات القوات المسلحة</td></tr>
+    <tr><td>متوسط</td><td><b>سري</b></td><td>مواقع التخزين اللوجستي والاقتصادي</td></tr>
+    <tr><td>منخفض</td><td><b>مقيد</b>، أو <b>عام</b> بعد خطوتين</td><td>البيانات الشخصية للأفراد</td></tr>
+    <tr><td>لا يوجد أثر</td><td><b>عام</b></td><td>الإحصاءات المنشورة</td></tr>
+  </table>
+  <div class="callout note mt small"><b>لا نعيد ما درسته.</b> المبادئ السبعة ومن يصنف: اليوم الثالث من LDS-DMG-101. هنا: الحصر، وفئات المقيد، والتجميع، والضوابط، والسجل، والآلة.</div>
+  <aside class="notes"><p>دقيقتان. من فاته مقرر الأسس يكفيه هذا الجدول وشريحة الأثر في الجلسة الثانية. الأمثلة من الجدول 1 في سياسة تصنيف البيانات.</p><p>المصادر: سياسة تصنيف البيانات (الإصدار الأول، 2020)، القسم 1.3.</p></aside>
+</section>
+
+<section class="slide" id="asset-boundary" data-lo="LO1" data-n="6" data-session="1">
+  <div class="kicker">الخطوة الأولى في السياسة</div>
+  <h2>لا تصنيف قبل الحصر، ولا حصر قبل أن تعرف ما الأصل</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>جداول نظام واحد</h4><p class="small mb0">نتائج الفحص وبنودها في نظام المختبرات: أصل واحد، لغرض واحد.</p></div>
+    <div class="card c-cyan"><h4>سلسلة وثائق</h4><p class="small mb0">تقارير الفحص الشهرية: أصل واحد، لا اثنا عشر.</p></div>
+    <div class="card c-purple"><h4>صندوق بريد</h4><p class="small mb0">بريد المختبر المشترك ومرفقاته: أصل واحد غير مهيكل.</p></div>
+  </div>
+  <div class="callout tip mt"><b>الأصل مجموعة بيانات لها مالك واحد وغرض واحد.</b> يُصنف مرة، ثم يُتبع إلى كل مكان يوجد فيه.</div>
+  <aside class="notes"><p>السياسة تبدأ عملية التصنيف بحصر كل بيانات الجهة، وتجعل نطاقها كل ما تتلقاه الجهة أو تنتجه أيًّا كان شكله: ورق، واجتماعات، وبريد، وصور. تعريف الأصل بالمالك والغرض قاعدة المقرر، وهي ما يجعل الحصر قابلًا للمراجعة.</p><p>سؤال للقاعة: من يعدّ كل ملف أصلًا، كم أصلًا يصنف في إدارة واحدة؟ مئات. ومن يجمع الإدارة كلها في أصل واحد يرفع كل شيء إلى أعلى ما فيه.</p><p>المصادر: سياسة تصنيف البيانات، القسمان 1.1 و1.5 (الخطوة 1).</p></aside>
+</section>
+
+<section class="slide" id="three-forms" data-lo="LO1" data-n="7" data-session="1">
+  <div class="kicker">ثلاثة أشكال</div>
+  <h2>الشكل يقرر أين تبحث وكيف توسم، لا المستوى</h2>
+  <table class="t">
+    <tr><th>الشكل</th><th>في قطاع الجودة والمختبرات</th><th>أين يوضع الوسم</th></tr>
+    <tr><td>مهيكلة</td><td>جداول نظام المختبرات: الشحنة، والعينة، والنتيجة</td><td>حقل تصنيف للجدول، وللعمود الحساس</td></tr>
+    <tr><td>شبه مهيكلة</td><td>ملفات XML تصدّرها أجهزة الفحص</td><td>في الملف وفي سجل الأصل</td></tr>
+    <tr><td>غير مهيكلة</td><td>تقارير ممسوحة، وصور، وبريد</td><td>رأس الوثيقة وتذييلها، وخصائص الملف</td></tr>
+  </table>
+  <div class="callout warn mt small"><b>أين يقع الخطأ.</b> غير المهيكل يُنسى في الحصر لأنه لا يظهر في سجل الأنظمة، وهو غالبًا أكثر البيانات انتشارًا.</div>
+  <aside class="notes"><p>المقرر يعدّ الجداول المنظمة في ملفات الجداول مهيكلة، وXML وJSON شبه مهيكلة، والوثائق والممسوحات والبريد والصور غير مهيكلة. ستجد التعريف نفسه في دليل الحصر في المختبر.</p><p>اسأل: أين يوجد أكثر بيانات قطاع الجودة؟ في المجلدات المشتركة والبريد، لا في النظام.</p></aside>
+</section>
+
+<section class="slide" id="two-sources" data-lo="LO1" data-n="8" data-session="1">
+  <div class="kicker">من أين يأتي الحصر</div>
+  <h2>سجل الأنظمة يرى الجداول، ومخزن الملفات يرى ما نسيه السجل</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>سجل الأنظمة</h4><ul class="bullets tight small"><li>الجداول والتصديرات وأعداد صفوفها</li><li>يفوته ما خرج من النظام إلى ملف</li><li>يضم جداول تقنية لا محتوى أعمال فيها</li></ul></div>
+    <div class="card c-coral"><h4>مخزن الملفات</h4><ul class="bullets tight small"><li>الوثائق والمسودات والممسوحات والصور</li><li>النسخ في المجلدات الشخصية</li><li>ملفات ينشئها النظام بلا محتوى</li></ul></div>
+  </div>
+  <div class="callout tip mt"><b>اقرأ الاثنين معًا.</b> كل ملف في المخزن إما موقع لأصل في السجل، أو أصل جديد، أو ليس أصلًا.</div>
+  <aside class="notes"><p>إن كان في جهة المشاركين كتالوج بيانات، فهو مصدر ثالث للحصر؛ ضوابط الإدارة الوطنية تطلب استخدامه للحصر حين يوجد. تشغيل الكتالوج نفسه موضوع LDS-DMG-202.</p><p>المصادر: ضوابط ومواصفات إدارة البيانات الوطنية وحوكمتها وحماية البيانات الشخصية، الإصدار 1.5، المواصفة DC.3.1.</p></aside>
+</section>
+
+<section class="slide" id="copies-are-locations" data-lo="LO1" data-n="9" data-session="1">
+  <div class="kicker">النسخ</div>
+  <h2>النسخة موقع للأصل نفسه، ولها ضوابط مستواه</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>الأصل</b>نتائج الفحص في نظام المختبرات</div>
+    <div class="arrow frag" data-frag="b">←</div><div class="step c-cyan frag" data-frag="b"><b>نسخة احتياطية</b>الجدول نفسه لعام مضى</div>
+    <div class="arrow frag" data-frag="c">←</div><div class="step c-coral frag" data-frag="c"><b>تصدير</b>ملف في مجلد محلل، لا يعرف به أحد</div>
+  </div>
+  <div class="callout warn mt frag" data-frag="c"><b>التصدير ليس أصلًا جديدًا بمستوى جديد.</b> هو الأصل نفسه في مكان أضعف: يُنقل إلى النظام أو يُتلف، ويُسجل.</div>
+  <aside class="notes"><p>اضغط لكل خطوة. من يعدّ التصدير أصلًا جديدًا يصنفه وحده، وغالبًا أقل من أصله لأنه «ملف عمل». القاعدة: المستوى يتبع البيانات أينما ذهبت.</p><p>اسأل القاعة: كم تصديرًا في مجلداتكم الشخصية من بيانات مقيدة؟ لا تطلب رقمًا، اطلب أن يفكروا فيه.</p></aside>
+</section>
+
+<section class="slide" id="received-data" data-lo="LO1" data-n="10" data-session="1">
+  <div class="kicker">البيانات المستلمة</div>
+  <h2>ما تستلمه من جهة أخرى داخل حصرك، بالمستوى الذي أعطته</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>النطاق كل ما تتلقاه الجهة أو تنتجه، أيًّا كان مصدره</li>
+      <li>ممثل بيانات الأعمال مسؤول عن اتساق تصنيف ما يُتبادل بين الإدارات والجهات</li>
+      <li>إن رأيت المستوى خاطئًا، فارجع إلى الجهة المرسلة، لا تخفضه وحدك</li>
+    </ul>
+    <div class="card c-purple"><h4>في قطاع الجودة</h4><p class="small mb0">شهادات تحليل تصل من مختبر معتمد في بلد المنشأ مع كل شحنة: داخل حصر القطاع، ويحتفظ بمستوى المرسل حتى يُراجع.</p></div>
+  </div>
+  <aside class="notes"><p>قاعدة الاتساق من أدوار ممثل بيانات الأعمال في السياسة: التأكد من أن البيانات المتبادلة بين الإدارات أو الجهات مصنفة ومحمية بصورة متسقة. لا تقل للقاعة إن السياسة تفرض مستوى المرسل حرفيًا؛ قل إن الاتساق مسؤولية، وإن الخلاف يُحل مع المرسل.</p><p>المصادر: سياسة تصنيف البيانات، القسمان 1.1 و1.6.</p></aside>
+</section>
+
+<section class="slide" id="not-assets" data-lo="LO1" data-n="11" data-session="1">
+  <div class="kicker">ما يُستبعد، وكيف</div>
+  <h2>«ليس أصلًا» و«إدارة أخرى» قراران يُكتبان، لا سطران يُحذفان</h2>
+  <div class="cols cols-2">
+    <div class="card c-navy"><h4>ليس أصلًا</h4><p class="small mb0">ملف قفل ينشئه المحرر، ومصغرات الصور، وجدول تقني يُفرَّغ كل ليلة. لا محتوى أعمال فيها، فلا مستوى لها.</p></div>
+    <div class="card c-amber"><h4>إدارة أخرى</h4><p class="small mb0">نسخة من بيانات يملكها قطاع آخر. لا تدخل حصرك، وتُبلَّغ إلى مالكها ليحصرها في موقعها هذا.</p></div>
+  </div>
+  <div class="callout warn mt small"><b>أين يقع الخطأ.</b> جدول تقني فيه نسخة من صفوف حقيقية ليس «تقنيًا»: هو موقع للأصل الذي نُسخ منه.</div>
+  <aside class="notes"><p>الاستبعاد المكتوب يجعل الحصر قابلًا للمراجعة: يعرف المراجِع أنك رأيت الملف وقررت. الحذف الصامت لا يُراجع.</p></aside>
+</section>
+
+<section class="slide" id="personal-vs-level" data-lo="LO1" data-n="12" data-session="1">
+  <div class="kicker">سؤالان مختلفان</div>
+  <h2>حساسية البيانات الشخصية سؤال، ومستوى التصنيف سؤال آخر</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>فحوص الصحة المهنية لفنيي المختبر</h4><p class="small mb0">بيانات صحية، أي حساسة في نظام حماية البيانات الشخصية. وأثر الإفصاح على أفراد معينين محدود: مقيد، ومثال السياسة «الملف الطبي للفرد».</p></div>
+    <div class="card c-coral"><h4>جدول نوبات حراسة خزنة العينات المرجعية</h4><p class="small mb0">لا اسم فيه ولا رقم شخصي. وكشفه يسهّل الوصول إلى عينات تُثبت بها نتائج وطنية: أعلى من المقيد.</p></div>
+  </div>
+  <div class="callout tip mt"><b>النظام يقرر كيف تعالج البيانات الشخصية.</b> التصنيف يقرر كيف تحمي أي بيانات من الإفصاح. الأصل يجيب عن السؤالين.</div>
+  <aside class="notes"><p>البيانات الحساسة في نظام حماية البيانات الشخصية: ما يكشف الأصل العرقي أو القبلي، أو المعتقد، أو السوابق الجنائية والأمنية، أو البيانات الحيوية والوراثية للتعريف، أو البيانات الصحية، أو مجهولية الأبوين. وجودها يفرض التزامات معالجة، ولا يرفع المستوى وحده؛ الذي يرفعه حجم الأثر، كأن تكون بيانات صحية لأعداد كبيرة.</p><p>مقرر الأسس صنّف خطط الرعاية لمئات المستفيدين «سرية»: هناك الحجم هو الذي رفع. هنا ملف كل فني على حدة.</p><p>المصادر: نظام حماية البيانات الشخصية، المادة 1 (البيانات الحساسة)؛ سياسة تصنيف البيانات، الجدول 1.</p></aside>
+</section>
+
+<section class="slide" id="check-scope" data-lo="LO1" data-n="13" data-session="1">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>ماذا تفعل بهذا الملف في الحصر؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO1" data-id="check-scope-q1">
+    <p class="lead">في مجلد محللة في قطاع الجودة ملف CSV صدّرته من جدول نتائج الفحص في نظام المختبرات قبل شهرين، ولم يُسجل في أي مكان. كيف يدخل الحصر؟</p>
+    <div class="opts">
+      <div class="opt" data-why="يعامل التصدير أصلًا جديدًا، فيصنف نسخة البيانات نفسها مرتين وربما بمستويين" data-k="أ">أصل جديد يصنفه القطاع وحده لأنه ملف مستقل</div>
+      <div class="opt" data-why="يحذف من الحصر مكانًا فيه بيانات حقيقية، فيبقى بلا ضابط" data-k="ب">ليس أصلًا، لأنه ملف عمل مؤقت لمحللة</div>
+      <div class="opt" data-ok data-k="ج">موقع للأصل نفسه، يُسجل ثم يُنقل أو يُتلف</div>
+      <div class="opt" data-why="يخلط بين مكان الملف ومالك البيانات: المجلد للمحللة والبيانات للقطاع" data-k="د">بيانات شخصية للمحللة، فلا تُحصر مع بيانات القطاع</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> النسخة موقع للأصل، لها مستواه وضوابطه. تسجيلها يجعل نقلها أو إتلافها قرارًا يُراجع.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: ج. من اختار «أ» سيصنف في المختبر أصولًا أكثر من اللازم؛ ارجع إلى شريحة النسخ.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-1" data-auto="lab" data-lab="1.1" data-label="المختبر 1.1" data-n="14" data-session="1">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">المختبر 1.1 · 50 دقيقة</div><h2>حصر الأصول من السجل ومخزن الملفات</h2><p class="lead small">تجمع ستة وثلاثين مصدرًا من سجل الأنظمة ومخزن ملفات إدارة الإمداد والاستيراد في أصول، وتستبعد ما ليس أصلًا وما يخص إدارة أخرى، وتحدد شكل كل أصل وهل فيه بيانات شخصية.</p><a class="nb" href="../labs/D1_1_scope.html">D1_1_scope.html</a></div><ul class="checklist"><li>اقرأ موجز الحالة ودليل الحصر <span class="min">6 د</span></li><li>اجمع جداول سجل الأنظمة في أصول <span class="min">12 د</span></li><li>صنّف ملفات المخزن: المسودات والنسخ وما ليس أصلًا <span class="min">14 د</span></li><li>حدد الشكل والبيانات الشخصية لكل أصل <span class="min">8 د</span></li><li>شغّل الفحص وأصلح ما يذكره <span class="min">10 د</span></li><li class="stretch">✱ إضافي: لكل نسخة في مجلد شخصي، اكتب الإجراء (نقل أو إتلاف) ومن يعتمده</li></ul></div>
+  <aside class="notes"><p>البداية من <span class="ltr">files/scope/inventory.xlsx</span> ودليل الحصر. راقب من يعطي كل ملف رمزًا جديدًا: اسأله من يملك الملف ولأي غرض. أكثر ما يتعثر فيه الناس: المسودة ونسختها الموقعة، والنسخة الاحتياطية، والتصدير في المجلد الشخصي.</p><p>من لم يثبّت <span class="en">uv</span>: يعمل في الجدول، ويشغّل المدرب الفحص على ملفه في نهاية المختبر.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-1" data-label="بعد المختبر 1.1" data-lo="LO1" data-n="15" data-session="1">
+  <div class="kicker">بعد المختبر 1.1</div>
+  <h2>ستة وثلاثون مصدرًا، عشرون أصلًا</h2>
+  <div class="cols cols-3">
+    <div class="stat"><div class="big">20</div><div class="lbl">أصلًا لإدارة الإمداد والاستيراد</div></div>
+    <div class="stat"><div class="big">3</div><div class="lbl">مصادر ليست أصولًا: قفل، ومصغرات، وجدول تقني</div></div>
+    <div class="stat"><div class="big">2</div><div class="lbl">يملكهما قطاع الجودة: تُبلّغان ولا تُحصران</div></div>
+  </div>
+  <div class="callout warn mt small"><b>الفخاخ الخمسة.</b> الحسابات البنكية مع الموردين، والنسخة الاحتياطية مع جدولها، والتصدير في مجلد أروى مع أصله، والمسودة مع مذكرتها الموقعة، والملحق مع خطته.</div>
+  <aside class="notes"><p>الأرقام من الحل المرجعي و<span class="ltr">solutions/check.py</span>. البيانات الجمركية المستلمة داخل الحصر بمستوى مرسلها. احتفظ بالتصدير في مجلد أروى: يعود في جلسة الضوابط.</p></aside>
+</section>
+
+<!-- الجلسة 2 -->
+
+<section class="slide section" id="s2" data-auto="section" data-session="2" data-n="16">
+  <div class="kicker">الجلسة 2</div>
+  <h1>الأثر والمستوى</h1>
+  <ul class="bullets outcomes"><li>تقدّر أثر الإفصاح بفئته ودرجته لكل أصل</li><li>تطبق الخطوتين 4 و5 حين يكون الأثر منخفضًا</li><li>تكتب مبررًا يذكر من يتضرر وكيف ولماذا ليس المستوى الأدنى</li></ul>
+  <div class="sess-no">02</div>
+</section>
+
+<section class="slide" id="impact-categories" data-lo="LO1" data-n="17" data-session="2">
+  <div class="kicker">على من يقع الضرر</div>
+  <h2>أربع فئات للأثر، ولكل منها فئات فرعية</h2>
+  <table class="t small">
+    <tr><th>الفئة</th><th>الفئات الفرعية في السياسة</th></tr>
+    <tr><td>المصلحة الوطنية</td><td>سمعة المملكة، والعلاقات الدبلوماسية، والأمن الوطني والنظام العام، والاقتصاد الوطني، والبنى التحتية الوطنية، ومهام الجهات الحكومية</td></tr>
+    <tr><td>أنشطة الجهات</td><td>أرباح الجهات الخاصة، وأعمالها</td></tr>
+    <tr><td>الأفراد</td><td>صحة الأفراد وسلامتهم، والخصوصية</td></tr>
+    <tr><td>البيئة</td><td>الموارد البيئية</td></tr>
+  </table>
+  <div class="callout tip mt small"><b>قدّر كل فئة تمسها البيانات، ثم خذ أعلاها.</b> أصل واحد قد يمس الأفراد والاقتصاد معًا.</div>
+  <aside class="notes"><p>الجدول 2 في السياسة يعطي لكل فئة فرعية سؤالًا يُسأل ووصفًا لكل درجة. القائمة غير حصرية، وعلى كل جهة أن تقدّر أثرها بنفسها.</p><p>المصادر: سياسة تصنيف البيانات، الجدول 2 والخطوة 3.أ.</p></aside>
+</section>
+
+<section class="slide" id="impact-degree" data-lo="LO1" data-n="18" data-session="2">
+  <div class="kicker">كم يبلغ الضرر</div>
+  <h2>الدرجة من ثلاثة أسئلة: كم يتسع، وكم يدوم، وهل يُتدارك</h2>
+  <div class="cols cols-4">
+    <div class="card c-coral"><h4>عالٍ</h4><p class="small mb0">ضرر جسيم طويل لا يمكن تداركه أو إصلاحه.</p></div>
+    <div class="card c-amber"><h4>متوسط</h4><p class="small mb0">ضرر جسيم طويل يصعب احتواؤه.</p></div>
+    <div class="card c-cyan"><h4>منخفض</h4><p class="small mb0">ضرر محدود قصير يمكن احتواؤه.</p></div>
+    <div class="card c-teal"><h4>لا يوجد</h4><p class="small mb0">لا ضرر قصير ولا طويل.</p></div>
+  </div>
+  <div class="callout note mt small"><b>والمخاطر محددة ومبنية على دليل.</b> اكتب الضرر الذي يحدث، لا شعورك بحساسية الملف.</div>
+  <aside class="notes"><p>الخطوة 3.ب في السياسة: الدرجة تُحدد بالمدة، وصعوبة الاحتواء، ووقت التعافي، والنطاق (وطني، أو عدة جهات، أو جهة، أو أفراد). السياسة تطلب أن تكون المخاطر محددة ومبنية على دليل لتقليل اجتهاد من يصنف.</p><p>المصادر: سياسة تصنيف البيانات، الخطوة 3.ب.</p></aside>
+</section>
+
+<section class="slide" id="level-flow" data-lo="LO1" data-read="scaled" data-n="19" data-session="2">
+  <div class="kicker">من الدرجة إلى المستوى</div>
+  <h2>ثلاث درجات تقرر وحدها، والمنخفض يمر بخطوتين</h2>
+  <div class="flow">
+    <div class="step c-cyan"><b>منخفض</b>ابدأ هنا</div>
+    <div class="arrow frag" data-frag="b">←</div><div class="step c-purple frag" data-frag="b"><b>الخطوة 4</b>هل يمنع نظامٌ الإفصاح؟ نعم ← مقيد</div>
+    <div class="arrow frag" data-frag="c">←</div><div class="step c-teal frag" data-frag="c"><b>الخطوة 5</b>هل تفوق المنافع الأضرار؟ نعم ← عام، لا ← مقيد</div>
+  </div>
+  <p class="small mt">عالٍ ← سري للغاية. متوسط ← سري. لا يوجد ← عام.</p>
+  <div class="callout tip mt frag" data-frag="c"><b>المنافع في السياسة:</b> خدمات جديدة ذات قيمة، وشفافية عمل الحكومة، ومشاركة المستفيدين.</div>
+  <aside class="notes"><p>الشكل 2 في السياسة. في القطاع التنموي تبدأ من «الإتاحة هي الأصل»، وفي القطاعين السياسي والأمني من «سري للغاية». هيئة الجَرين تنموية.</p><p>الخطوة 4 تذكر أمثلة على الأنظمة؛ في المقرر نستعمل نظام حماية البيانات الشخصية لما فيه بيانات شخصية، ولا نفتي في غيره.</p><p>المصادر: سياسة تصنيف البيانات، الخطوات 3 إلى 5 والشكل 2.</p></aside>
+</section>
+
+<section class="slide" id="step5-example" data-lo="LO1" data-n="20" data-session="2">
+  <div class="kicker">الخطوة 5 في قطاع الجودة</div>
+  <h2>أثران منخفضان، وموازنتان مختلفتان</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>عدد الشحنات المرفوضة شهريًا لكل سلعة</h4><p class="small mb0">بلا أسماء موردين. لا نظام يمنع، والثقة في سلامة الغذاء منفعة تفوق ضررًا محدودًا: <b>عام</b>.</p></div>
+    <div class="card c-coral"><h4>مسودة تقرير تلوث شحنة قبل التحقق</h4><p class="small mb0">لا نظام يمنع، لكن نشر نتيجة لم تُتحقق يضر بالمورد وبالسوق أكثر مما ينفع: <b>مقيد</b>، حتى يُتحقق.</p></div>
+  </div>
+  <div class="callout note mt small"><b>نتائج الدراسات قبل نشرها</b> مثال السياسة على المقيد.</div>
+  <aside class="notes"><p>الموازنة ليست ذوقًا: اكتب المنفعة باسمها والضرر باسمه. المثالان من قطاع الجودة، وفي المختبر أصول من النوعين في إدارة الإمداد.</p><p>المصادر: سياسة تصنيف البيانات، الجدول 1 والخطوة 5.</p></aside>
+</section>
+
+<section class="slide" id="restricted-groups" data-lo="LO1" data-n="21" data-session="2">
+  <div class="kicker">فئات المقيد</div>
+  <h2>المقيد ثلاث فئات، بحسب امتداد الأثر</h2>
+  <table class="t">
+    <tr><th>الفئة</th><th>إذا امتد الأثر إلى</th><th>في قطاع الجودة</th></tr>
+    <tr><td><b>مقيد (أ)</b></td><td>قطاع كامل، أو نشاط اقتصادي عام</td><td>مسودة دراسة جودة الأرز المستورد على مستوى المملكة</td></tr>
+    <tr><td><b>مقيد (ب)</b></td><td>عدة جهات، أو مجموعة من الأفراد</td><td>نتائج الفحص لكل مورد باسمه</td></tr>
+    <tr><td><b>مقيد (ج)</b></td><td>جهة واحدة، أو فرد معين</td><td>إجراءات العمل الداخلية للمختبر</td></tr>
+  </table>
+  <aside class="notes"><p>الفئات الفرعية من السياسة، بعد الجدول 1. مقرر الأسس لم يستعملها؛ هنا تُكتب في السجل لأنها تفرق بين ضوابط الأصول المقيدة (من يوافق على المشاركة مثلًا). اسأل: لماذا قد تختلف الموافقة على مشاركة (أ) عن (ج)؟</p><p>المصادر: سياسة تصنيف البيانات، القسم 1.3.</p></aside>
+</section>
+
+<section class="slide" id="confidential-older" data-lo="LO1" data-n="22" data-session="2">
+  <div class="kicker">الأسماء في النصوص</div>
+  <h2>«مقيد» في العربية دائمًا، و«سري» قد يعني غيره في الترجمة</h2>
+  <table class="t small">
+    <tr><th>النص</th><th>المستوى الثاني من الأسفل</th></tr>
+    <tr><td>سياسة تصنيف البيانات، بالعربية والإنجليزية</td><td>مقيد · <span class="en">Restricted</span></td></tr>
+    <tr><td>الضوابط والمواصفات (1.5)، بالعربية</td><td>مقيدة</td></tr>
+    <tr><td>الضوابط والمواصفات (1.5)، بالإنجليزية</td><td><span class="en">Confidential</span></td></tr>
+    <tr><td>مبادئ الذكاء الاصطناعي التوليدي، بالإنجليزية</td><td><span class="en">restricted, confidential, and top secret</span></td></tr>
+  </table>
+  <div class="callout warn mt small"><b>أين يقع الخطأ.</b> من يقرأ <span class="en">Confidential</span> فيترجمها «سري» يرفع المقيد درجة. في السجل اكتب أسماء السياسة.</div>
+  <aside class="notes"><p>الجدول من قراءة النصوص نفسها. النسخة الإنجليزية من الضوابط والمواصفات (الإصدار 1.5) تسمي المستوى المنخفض الأثر Confidential في المواصفة DC.3.2، والنسخة العربية تقول «مقيدة». وفي الإنجليزية من مبادئ الذكاء الاصطناعي التوليدي يرد القوس «restricted, confidential, and top secret»، بلا Secret.</p><p>المصادر: سياسة تصنيف البيانات؛ الضوابط والمواصفات 1.5، DC.3.2 (العربية والإنجليزية)؛ مبادئ الذكاء الاصطناعي التوليدي للجهات الحكومية، القسم 3.5.</p></aside>
+</section>
+
+<section class="slide" id="unclassified-is-restricted" data-lo="LO1" data-n="23" data-session="2">
+  <div class="kicker">قبل أن يُصنف</div>
+  <h2>ما لم يُصنف يُعامل مقيدًا حتى يُصنف</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>البيانات تُصنف عند إنشائها أو استلامها، ولمدة محددة</li>
+      <li>ما لم يُصنف يُعامل «مقيدًا» حتى يُصنف تصنيفًا صحيحًا</li>
+      <li>وما سبق السياسة يُصنف بخطة عمل يعتمدها رئيس الجهة</li>
+    </ul>
+    <div class="card c-coral"><h4>لماذا يهمك هذا</h4><p class="small mb0">ملف لم يُصنف ليس «عامًا لأن أحدًا لم يقل غير ذلك». لا يُنشر، ولا يدخل أداة ذكاء اصطناعي توليدي.</p></div>
+  </div>
+  <aside class="notes"><p>المبدأ 3 (التصنيف في الوقت المناسب) وأول فقرة في ضوابط التصنيف. سنعود إلى هذه القاعدة في الجلسة السادسة: مسار آلي يسم «عام» كل ما لم يجد فيه شيئًا يخالفها.</p><p>المصادر: سياسة تصنيف البيانات، القسمان 1.2 و1.4.</p></aside>
+</section>
+
+<section class="slide" id="rationale" data-lo="LO1" data-n="24" data-session="2">
+  <div class="kicker">المبرر</div>
+  <h2>المبرر جملة: من يتضرر، وكيف، ولماذا ليس الأدنى</h2>
+  <div class="cols cols-2">
+    <div class="card flat c-coral"><h4>مبرر ضعيف</h4><p class="small mb0">«نتائج حساسة ومهمة للقطاع.»</p></div>
+    <div class="card flat c-teal"><h4>مبرر يُراجع</h4><p class="small mb0">«مقيد (ب): نتائج الفحص لكل مورد باسمه تضر بسمعة عدة موردين ضررًا محدودًا يُتدارك؛ ليست عامة لأن نشر نتائج قيد الاعتراض يفوق ضرره منفعته.»</p></div>
+  </div>
+  <div class="callout tip mt small"><b>المراجِع يراجع المبرر، لا المستوى.</b> مستوى بلا مبرر لا يُراجع.</div>
+  <aside class="notes"><p>في المختبر عمود rationale، والفحص يرفض ما هو أقصر من جملة. المبرر هو ما تقرؤه مراجِعة التصنيف في الجلسة الخامسة، وهو ما تعود إليه حين يُعترض.</p></aside>
+</section>
+
+<section class="slide" id="check-impact" data-lo="LO1" data-n="25" data-session="2">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>ما مستوى هذا الأصل؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO1" data-id="check-impact-q1">
+    <p class="lead">جدول في قطاع الجودة بنتائج الفحص الطبي الدوري لثلاثين فنيًا، بأسمائهم. كشفه يضر بكل فني ضررًا محدودًا يُتدارك. ما المستوى؟</p>
+    <div class="opts">
+      <div class="opt" data-ok data-k="أ">مقيد، لأن نظام حماية البيانات الشخصية يمنع الإفصاح عنها</div>
+      <div class="opt" data-why="يجعل البيانات الصحية سرية بطبيعتها، والمستوى يقرره حجم الأثر" data-k="ب">سري، لأن البيانات الصحية بيانات حساسة في النظام</div>
+      <div class="opt" data-why="يقفز إلى الخطوة 5 قبل الخطوة 4، والنظام يمنع الإفصاح هنا" data-k="ج">عام، لأن الأثر منخفض ومنفعة الشفافية أكبر</div>
+      <div class="opt" data-why="يرفع إلى أعلى المستويات بلا أثر وطني يبرر ذلك" data-k="د">سري للغاية، لأن الفحص الطبي يمس السلامة</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> الأثر منخفض، والخطوة 4 تحسم: نظام يمنع الإفصاح، فهو مقيد، ومثال السياسة «الملف الطبي للفرد».</div>
+  </div>
+  <aside class="notes"><p>الإجابة: أ. من اختار «ب» يخلط حساسية البيانات الشخصية بالمستوى؛ ارجع إلى شريحة «سؤالان مختلفان». فئة المقيد هنا (ب): مجموعة من الأفراد.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-2" data-auto="lab" data-lab="1.2" data-label="المختبر 1.2" data-n="26" data-session="2">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">المختبر 1.2 · 50 دقيقة</div><h2>تقدير 20 أصلًا وتحديد مستوياتها</h2><p class="lead small">تقدّر أثر الإفصاح لعشرين أصلًا اصطناعيًا، وتحدد مستوى كل منها وفئة المقيد ومبرره، حتى يطابق المرجع في ستة عشر أصلًا على الأقل دون أن يُصنف أصل من المستويين الأعليين عامًا.</p><a class="nb" href="../labs/D1_2_rating.html">D1_2_rating.html</a></div><ul class="checklist"><li>اقرأ دليل الأثر والأصول الثلاثة الأولى <span class="min">6 د</span></li><li>قدّر الأصول من <span class="ltr" dir="ltr">A01</span> إلى <span class="ltr" dir="ltr">A10</span> <span class="min">16 د</span></li><li>قدّر الأصول من <span class="ltr" dir="ltr">A11</span> إلى <span class="ltr" dir="ltr">A20</span> <span class="min">16 د</span></li><li>شغّل الفحص وأصلح ما لا يتسق <span class="min">7 د</span></li><li>قارن مبررين مع زميلك <span class="min">5 د</span></li><li class="stretch">✱ إضافي: لأصلين مقيدين بعد الخطوة 5، اكتب لماذا ليسا عامين بجملة يقبلها مراجِع</li></ul></div>
+  <aside class="notes"><p>البداية من <span class="ltr">files/rating/assets_20.xlsx</span>؛ لا تحتاج نتيجة المختبر 1.1. راقب الوقت: بعد ست عشرة دقيقة من الخطوة الثانية انتقل بهم إلى A11 مهما كانوا. أكثر خطأ: رفع كل ما فيه بيانات شخصية إلى «سري»، ونسيان الخطوة 5.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-2" data-label="بعد المختبر 1.2" data-lo="LO1" data-n="27" data-session="2">
+  <div class="kicker">بعد المختبر 1.2</div>
+  <h2>أصل سري للغاية، وأربعة سرية، وأحد عشر مقيدًا، وأربعة عامة</h2>
+  <div class="bars">
+    <div class="row"><span>سري للغاية</span><div class="bar c-coral" style="--w:9%"></div><span class="val">1</span></div>
+    <div class="row"><span>سري</span><div class="bar c-amber" style="--w:36%"></div><span class="val">4</span></div>
+    <div class="row"><span>مقيد</span><div class="bar c-cyan" style="--w:100%"></div><span class="val">11</span></div>
+    <div class="row"><span>عام</span><div class="bar c-teal" style="--w:36%"></div><span class="val">4</span></div>
+  </div>
+  <div class="callout warn mt small"><b>ثلاثة دروس.</b> مسح الأسعار أثره منخفض ويصير عامًا في الخطوة 5. المحاضر ومسودة الدراسة تبقيان مقيدتين (أ). وتصميم الحماية يُقبل سريًا أو مقيدًا بمبرر.</div>
+  <aside class="notes"><p>من الحل المرجعي: الفحص يطابقه في 20 من 20. سري للغاية: خطة السحب في الأزمات. سري: أرصدة المواقع، وسجل المواقع، ومذكرة التفاهم الدولية، وتصميم الحماية. اطلب ممن طابق أقل من ستة عشر أن يقرأ مبررات الأصول التي اختلف فيها، لا المستوى وحده.</p></aside>
+</section>
+
+<!-- الجلسة 3 -->
+
+<section class="slide section" id="s3" data-auto="section" data-session="3" data-n="28">
+  <div class="kicker">الجلسة 3</div>
+  <h1>الخلاف والتجميع</h1>
+  <ul class="bullets outcomes"><li>تقيس الاتفاق بين مصنفين بالنسبة وبمعامل كابا</li><li>تحسم الخلاف بدليل من وصف الأصل وخطوات السياسة</li><li>تصنف مجموعة مجمّعة بحدها الأدنى ثم بأثرها كله</li></ul>
+  <div class="sess-no">03</div>
+</section>
+
+<section class="slide" id="why-disagree" data-lo="LO1" data-n="29" data-session="3">
+  <div class="kicker">لماذا يختلف المصنفون</div>
+  <h2>الخلاف يأتي من ثلاثة مصادر، وكلها تُعالج بالدليل</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>قراءة النطاق</h4><p class="small mb0">هل يمس الضرر موردًا واحدًا أم السوق كلها؟</p></div>
+    <div class="card c-cyan"><h4>الخطوتان 4 و5</h4><p class="small mb0">أحدهما رأى نظامًا يمنع، والآخر وازن المنافع مباشرة.</p></div>
+    <div class="card c-purple"><h4>حقيقة غائبة</h4><p class="small mb0">أحدهما يعرف أن الملف يخص منشأة حيوية، والآخر لا.</p></div>
+  </div>
+  <div class="callout tip mt small"><b>الخلاف معلومة.</b> يدلك على أصل وصفه ناقص أو دليلك غامض.</div>
+  <aside class="notes"><p>اسأل القاعة: في المختبر 1.2، أين اختلفتم مع جيرانكم؟ غالبًا في الأصول المنخفضة الأثر، لأن الخطوة 5 موازنة.</p></aside>
+</section>
+
+<section class="slide" id="agreement-kappa" data-lo="LO1" data-n="30" data-session="3">
+  <div class="kicker">قياس الاتفاق</div>
+  <h2>النسبة تبالغ، ومعامل كابا يطرح ما يتفق عليه الحظ</h2>
+  <div class="cols cols-3">
+    <div class="stat"><div class="big">80%</div><div class="lbl">اتفاق مراجعَين في قطاع الجودة على عشرة أصول</div></div>
+    <div class="stat"><div class="big">0.63</div><div class="lbl">كابا للمراجعَين أنفسهما</div></div>
+    <div class="stat"><div class="big">0.00</div><div class="lbl">كابا لمن يقول «مقيد» دائمًا، واتفاقه 60%</div></div>
+  </div>
+  <div class="callout note mt small"><b>كابا = (الاتفاق − اتفاق الحظ) ÷ (1 − اتفاق الحظ).</b> اتفاق الحظ من تكرار كل مستوى عند كل مصنف.</div>
+  <aside class="notes"><p>الأرقام من مثال في قطاع الجودة محسوب في أدوات المقرر: المراجعان اتفقا في 8 من 10، واتفاق الحظ 0.46، فكابا 0.63. مصنف كسول يقول «مقيد» لكل شيء يتفق مع الثاني في 6 من 10، وكابا عنده صفر: لا معلومة فوق الحظ.</p><p>لا تدخل في جداول التفسير المشهورة لقيم كابا؛ يكفي أن القيمة القريبة من الصفر لا تعني شيئًا، وأن المقارنة بين جولتين أهم من الرقم وحده.</p></aside>
+</section>
+
+<section class="slide" id="agree-not-right" data-lo="LO1" data-n="31" data-session="3">
+  <div class="kicker">الاتفاق ليس صوابًا</div>
+  <h2>اثنان قد يتفقان على الخطأ نفسه، ولهذا توجد المراجعة</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>المصنفان قد يشتركان في سوء قراءة واحد</li>
+      <li>المراجِع في مكتب إدارة البيانات يراجع المستوى خلال شهر من التصنيف الأولي</li>
+      <li>المراجِع يقرأ المبرر ويختبره بأسئلة الأثر، لا بعدد من اتفقوا</li>
+    </ul>
+    <div class="card c-amber"><h4>في قطاع الجودة</h4><p class="small mb0">اتفق مصنفان على أن إجراءات المختبر «عامة» لأنها «تقنية». المراجِعة وجدت فيها خطوات فتح خزنة العينات.</p></div>
+  </div>
+  <aside class="notes"><p>الخطوة 6 في السياسة: مراجِع تصنيف البيانات، موظف في مكتب إدارة البيانات، يتحقق أن المستوى الأنسب، خلال شهر من التصنيف الأولي.</p><p>المصادر: سياسة تصنيف البيانات، الخطوة 6 والقسم 1.6.</p></aside>
+</section>
+
+<section class="slide" id="reconcile-flow" data-lo="LO1" data-n="32" data-session="3">
+  <div class="kicker">حسم الخلاف</div>
+  <h2>ثلاث خطوات، والرابعة تصعيد</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>1 · الدليل</b>عد إلى وصف الأصل: ماذا فيه فعلًا؟</div>
+    <div class="arrow frag" data-frag="b">←</div><div class="step c-cyan frag" data-frag="b"><b>2 · الخطوة</b>سمِّ الخطوة التي يختلف فيها الرأيان</div>
+    <div class="arrow frag" data-frag="c">←</div><div class="step c-purple frag" data-frag="c"><b>3 · القرار</b>المستوى ومبرره في سطر</div>
+    <div class="arrow frag" data-frag="d">←</div><div class="step c-coral frag" data-frag="d"><b>4 · تصعيد</b>إن بقي الخلاف: المستوى الأعلى مؤقتًا</div>
+  </div>
+  <aside class="notes"><p>اضغط لكل خطوة. المستوى الأعلى مؤقتًا قاعدة المقرر، مبنية على أن ما لم يُصنف تصنيفًا صحيحًا يُعامل مقيدًا على الأقل، وعلى مبدأ أعلى مستوى. التصعيد نفسه موضوع الجلسة الخامسة.</p></aside>
+</section>
+
+<section class="slide" id="aggregation-floor" data-lo="LO1" data-n="33" data-session="3">
+  <div class="kicker">التجميع</div>
+  <h2>المجموعة لا تنزل عن أعلى مكوّناتها، ثم تُقيَّم كلها</h2>
+  <div class="cols cols-2">
+    <div class="card c-navy"><h4>1 · الحد الأدنى</h4><p class="small mb0">مبدأ أعلى مستوى: المجموعة التي تضم مستويات مختلفة تأخذ أعلاها. وممثل بيانات الأعمال مسؤول عن تصنيف المجمّع من مصادر متعددة بأعلى مستوياتها.</p></div>
+    <div class="card c-coral"><h4>2 · أثر المجموعة</h4><p class="small mb0">ثم قدّر أثر المجموعة كأنها أصل جديد. إن كشف اجتماعها شيئًا لا يكشفه أي مكوّن، فقد يرتفع المستوى.</p></div>
+  </div>
+  <aside class="notes"><p>الخطوة الأولى من السياسة نصًّا: المبدأ 4، ودور ممثل بيانات الأعمال في «تجميع البيانات». الخطوة الثانية تطبيق الخطوة 3 على المجموعة بوصفها بيانات جديدة؛ هذا منطق المقرر، لا نص في السياسة.</p><p>المصادر: سياسة تصنيف البيانات، المبدأ 4 والقسم 1.6.</p></aside>
+</section>
+
+<section class="slide" id="aggregation-raises" data-lo="LO1" data-n="34" data-session="3">
+  <div class="kicker">مثال من قطاع الجودة</div>
+  <h2>مقيد ومقيد قد يكوّنان سريًا</h2>
+  <div class="cols cols-3">
+    <div class="card c-cyan"><h4>دليل فنيي المختبر المركزي</h4><p class="small mb0">مقيد: أسماء وجوالات.</p></div>
+    <div class="card c-cyan"><h4>جدول نوبات الحراسة</h4><p class="small mb0">مقيد: أوقات بلا أسماء.</p></div>
+    <div class="card c-coral"><h4>الاثنان في ملف واحد</h4><p class="small mb0">يكشف متى تخلو خزنة العينات المرجعية ومن يحمل مفتاحها: <b>سري</b>.</p></div>
+  </div>
+  <div class="callout tip mt small"><b>اسأل:</b> ما المعلومة الجديدة التي لم تكن في أي مكوّن؟ إن لم تجد، فالحد الأدنى هو المستوى.</div>
+  <aside class="notes"><p>المثال افتراضي من قطاع الجودة. في المختبر ثلاث مجموعات من إدارة الإمداد: واحدة يرفعها التجميع، وواحدة لا يرفعها، وواحدة لا يُنزلها حذف الأسماء. لا تكشف أيها أيها.</p></aside>
+</section>
+
+<section class="slide" id="aggregation-not-lower" data-lo="LO1" data-n="35" data-session="3">
+  <div class="kicker">والعكس</div>
+  <h2>حذف الأسماء لا يُنزل المستوى إذا عرّفت الخلية صاحبها</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>جدول مجمّع بلا أسماء قد يبقى مقيدًا</li>
+      <li>إذا لم يكن في خلية إلا جهة واحدة أو شخص واحد، فالمجموع هو بياناته</li>
+      <li>الإنزال إلى «عام» قرار جديد يمر بالتقييم كله</li>
+    </ul>
+    <div class="card c-purple"><h4>في قطاع الجودة</h4><p class="small mb0">نسبة الرفض لكل سلعة ومنفذ. في منفذ لا يورد منه الأرز إلا مورد واحد، النسبة هي نسبة ذلك المورد.</p></div>
+  </div>
+  <div class="callout note mt small"><b>إخفاء الهوية وأدواته</b> بالتفصيل في LDS-DMG-205 وLDS-DMG-206.</div>
+  <aside class="notes"><p>لا تدخل في طرق الإخفاء هنا. الفكرة الوحيدة: التجميع ليس إخفاءً تلقائيًا، والمستوى لا ينزل إلا بتقييم.</p></aside>
+</section>
+
+<section class="slide" id="over-under" data-lo="LO1" data-n="36" data-session="3">
+  <div class="kicker">الضرران</div>
+  <h2>التفريط يكشف، والإفراط يحجب ما ينبغي أن يُشارك</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>التفريط: مستوى أقل من الأثر</h4><ul class="bullets tight small"><li>ضوابط أضعف مما يلزم</li><li>نشر أو مشاركة لما لا يُنشر</li><li>دخول أدوات لا يُسمح لها</li></ul></div>
+    <div class="card c-amber"><h4>الإفراط: مستوى أعلى من الأثر</h4><ul class="bullets tight small"><li>بيانات تنموية لا تُتاح ولا تُشارك</li><li>كلفة ضوابط بلا حاجة</li><li>استثناءات كثيرة تُضعف الثقة في المستويات</li></ul></div>
+  </div>
+  <div class="callout tip mt small"><b>الإتاحة هي الأصل في القطاع التنموي.</b> الإفراط ليس أمانًا، بل خطأ من نوع آخر.</div>
+  <aside class="notes"><p>المبدأ 1 (الإتاحة هي الأصل) والمبدأ 2 (الضرورة والتناسب): المستوى يوازن القيمة مقابل السرية. في الكتالوج تقيس الجهة نسبة البيانات المنخفضة الأثر المصنفة «مقيدة»؛ المؤشر موجود لأن الإفراط مشكلة معروفة.</p><p>المصادر: سياسة تصنيف البيانات، القسم 1.2؛ الضوابط والمواصفات 1.5، DC.4.1.</p></aside>
+</section>
+
+<section class="slide" id="check-reconcile" data-lo="LO1" data-n="37" data-session="3">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>ما مستوى المجموعة؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO1" data-id="check-reconcile-q1">
+    <p class="lead">لوحة في قطاع الجودة تجمع عدد العينات المفحوصة يوميًا (عام) مع قائمة الفنيين المناوبين بأسمائهم (مقيد). لا يكشف اجتماعهما شيئًا غير ما في كل منهما. ما مستوى اللوحة؟</p>
+    <div class="opts">
+      <div class="opt" data-why="يأخذ أغلب المحتوى بدل أعلاه، ومبدأ أعلى مستوى عكس ذلك" data-k="أ">عام، لأن أغلب ما في اللوحة أعداد منشورة</div>
+      <div class="opt" data-why="يرفع لمجرد التجميع، مع أنه لا معلومة جديدة ظهرت" data-k="ب">سري، لأن كل تجميع يرفع المستوى درجة</div>
+      <div class="opt" data-why="يبحث عن حل وسط، والسياسة لا تعرف المتوسط بين المستويات" data-k="ج">بين العام والمقيد، فتُنشر الأعداد وتُحجب الأسماء</div>
+      <div class="opt" data-ok data-k="د">مقيد، أعلى المكوّنين، ولا أثر جديد يرفعه</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> الحد الأدنى أعلى المكوّنين، والتقييم لم يجد أثرًا جديدًا يرفعه. لو أردت نشر الأعداد، فافصلها في أصل عام.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: د. من اختار «ب» يحتاج سؤال المعلومة الجديدة. من اختار «ج» محق في أن الأعداد تُنشر، لكن منفصلة، لا اللوحة.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-3" data-auto="lab" data-lab="1.3" data-label="المختبر 1.3" data-n="38" data-session="3">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">المختبر 1.3 · 50 دقيقة</div><h2>المطابقة مع زميل وأثر التجميع</h2><p class="lead small">تقارن تقديرين للأصول العشرين، وتحسم كل خلاف بدليل، ثم تصنف ثلاث مجموعات بيانات مجمّعة: واحدة يرفعها التجميع، وواحدة لا يرفعها، وواحدة لا يُنزلها حذف الأسماء.</p><a class="nb" href="../labs/D1_3_reconcile.html">D1_3_reconcile.html</a></div><ul class="checklist"><li>شغّل أداة الاتفاق على ملفي الزميلين أو ملفك وملف زميلك <span class="min">6 د</span></li><li>احسم الخلافات الستة، لكل منها دليل <span class="min">18 د</span></li><li>صنّف المجموعات المجمّعة الثلاث <span class="min">14 د</span></li><li>شغّل الفحص <span class="min">6 د</span></li><li>اكتب ضرر الإفراط وضرر التفريط لأصلين <span class="min">6 د</span></li><li class="stretch">✱ إضافي: احسب الاتفاق بين ملفك والمرجع، وفسّر الفرق بين النسبة ومعامل كابا</li></ul></div>
+  <aside class="notes"><p>البداية من ملفي الزميلين الجاهزين. من أنهى 1.2 مع زميل يقارن ملفيهما للنقاش، ويملأ الورقة بخلافات الملفين الجاهزين ليعمل الفحص. راقب من يحسم الخلاف بالتصويت أو بالأقدمية: اسأله عن الجملة في وصف الأصل.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-3" data-label="بعد المختبر 1.3" data-lo="LO1" data-n="39" data-session="3">
+  <div class="kicker">بعد المختبر 1.3</div>
+  <h2>اتفاق 70٪، وكابا 0.52، وخطأ مشترك واحد</h2>
+  <div class="cols cols-3">
+    <div class="stat"><div class="big">14/20</div><div class="lbl">اتفق الزميلان على المستوى</div></div>
+    <div class="stat"><div class="big">0.52</div><div class="lbl">كابا</div></div>
+    <div class="stat"><div class="big">1</div><div class="lbl">أصل اتفقا عليه وأخطآ: أسعار العقود «عامة»</div></div>
+  </div>
+  <div class="callout warn mt small"><b>المجموعات الثلاث.</b> لوحة الإمداد سرية: الرحلات مع السعة المنشورة تكشف امتلاء المواقع. دليل الفريق مقيد. وواردات الموانئ مقيدة رغم حذف الأسماء.</div>
+  <aside class="notes"><p>الأرقام من <span class="ltr">kit/agreement.py</span> على ملفي الزميلين. الخلافات الستة: خطة السحب، ورحلات الشاحنات، وتصميم الحماية، ومسح الأسعار، ودليل الهواتف، وصور الحملة. اسأل: من كان سيكتشف خطأ أسعار العقود لو لم يكن هناك مراجِع؟</p></aside>
+</section>
+
+<!-- الجلسة 4 -->
+
+<section class="slide section" id="s4" data-auto="section" data-session="4" data-n="40">
+  <div class="kicker">الجلسة 4</div>
+  <h1>الضوابط تتبع المستوى</h1>
+  <ul class="bullets outcomes"><li>تختار لكل مستوى ومرحلة ضابطًا مسمّى من كتالوج الضوابط</li><li>تميّز الضابط الذي لا يصلح لمستوى أعلى</li><li>تكتشف أصلًا محفوظًا في نظام غير معتمد لمستواه</li></ul>
+  <div class="sess-no">04</div>
+</section>
+
+<section class="slide" id="control-families" data-lo="LO2" data-n="41" data-session="4">
+  <div class="kicker">ما تطلبه السياسة</div>
+  <h2>المستوى يُترجم إلى ضوابط في تسعة مواضع</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>العلامة والوصول والاستخدام</h4><p class="small mb0">علامة حماية بالمستوى، ووصول بالحاجة إلى المعرفة، واستخدام في المواضع المحددة.</p></div>
+    <div class="card c-cyan"><h4>التخزين والمشاركة والأرشفة</h4><p class="small mb0">لا يُترك المقيد فأعلى دون مراقبة، ويُشفَّر، ويُشارك بوسائل متفق عليها.</p></div>
+    <div class="card c-purple"><h4>الاحتفاظ والإتلاف ورفع التصنيف</h4><p class="small mb0">جدول احتفاظ يُراجع، وإتلاف بموافقة وسجل، ومحفزات لرفع التصنيف.</p></div>
+  </div>
+  <div class="callout note mt small"><b>التفصيل الفني</b> في ضوابط الهيئة الوطنية للأمن السيبراني، والسياسة تحيل إليها.</div>
+  <aside class="notes"><p>الأمثلة التسعة من قسم ضوابط التصنيف في السياسة: علامات الحماية، والوصول، والاستخدام، والتخزين، ومشاركة البيانات، والاحتفاظ، والتخلص، والأرشفة، ورفع التصنيف. المصفوفة في المختبر بخمس مراحل يطلبها ناتج التعلم الثاني: التخزين، والنقل، والمشاركة، والاحتفاظ، والإتلاف.</p><p>المصادر: سياسة تصنيف البيانات، القسم 1.4. ضوابط الأمن السيبراني للبيانات مذكورة باسمها وعنوانها فقط.</p></aside>
+</section>
+
+<section class="slide" id="marking" data-lo="LO2" data-n="42" data-session="4">
+  <div class="kicker">وسم الملفات والسجلات والحقول</div>
+  <h2>العلامة تُكتب حيث يقرؤها من يتعامل مع البيانات</h2>
+  <table class="t">
+    <tr><th>ما يُوسم</th><th>أين العلامة</th><th>في قطاع الجودة</th></tr>
+    <tr><td>وثيقة أو بريد</td><td>رأس الوثيقة وتذييلها، وسطر الموضوع</td><td>تقرير فحص شحنة: «مقيد (ب)»</td></tr>
+    <tr><td>سجل في جدول</td><td>حقل التصنيف في السجل أو الجدول</td><td>جدول النتائج: حقل للمستوى</td></tr>
+    <tr><td>حقل حساس</td><td>وسم للعمود في الكتالوج</td><td>عمود اسم المورد في جدول النتائج</td></tr>
+  </table>
+  <div class="callout tip mt small"><b>العلامة على العام أيضًا.</b> «عام» مكتوبة تقول إن أحدًا قرر، لا أن أحدًا نسي.</div>
+  <aside class="notes"><p>السياسة تطلب علامات حماية للوثائق الورقية والإلكترونية، والبريد منها، بحسب كل مستوى. وسم العمود يجعل إخفاءه في التقارير والنسخ ممكنًا آليًا؛ تشغيل ذلك في الكتالوج في LDS-DMG-202.</p><p>المصادر: سياسة تصنيف البيانات، القسم 1.4 (علامات الحماية).</p></aside>
+</section>
+
+<section class="slide" id="access-encryption" data-lo="LO2" data-n="43" data-session="4">
+  <div class="kicker">الوصول والتشفير</div>
+  <h2>الوصول يقرر من يرى، والتشفير يحمي حين يفشل الوصول</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>الوصول</h4><ul class="bullets tight small"><li>الحاجة إلى المعرفة، وأقل صلاحيات ممكنة</li><li>يُلغى فور انتهاء خدمة الموظف</li><li>قائمة مسمّاة كلما ارتفع المستوى</li></ul></div>
+    <div class="card c-cyan"><h4>التشفير</h4><ul class="bullets tight small"><li>للمقيد فأعلى حين يُخزن دون مراقبة</li><li>بآليات تعتمدها الهيئة الوطنية للأمن السيبراني</li><li>لا يحمي من شخص يملك المفتاح</li></ul></div>
+  </div>
+  <div class="callout warn mt small"><b>أين يقع الخطأ.</b> «القرص مشفر» ليس ضابط تخزين كاملًا: لا يقول أين تُحفظ البيانات ولا من يصل إليها.</div>
+  <aside class="notes"><p>هذا ما يُفترض أن يعرفه المشارك قبل المقرر: الوصول يمنع من لا صلاحية له، والتشفير يجعل البيانات غير مقروءة لمن وصل إلى الوسيط دون المفتاح. في الكتالوج ضابط فخ عن تشفير القرص وحده.</p><p>المصادر: سياسة تصنيف البيانات، القسم 1.4 (الوصول، والتخزين).</p></aside>
+</section>
+
+<section class="slide" id="anonymisation" data-lo="LO2" data-n="44" data-session="4">
+  <div class="kicker">إخفاء الهوية</div>
+  <h2>الإخفاء ينتج أصلًا جديدًا يُقيَّم من جديد</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>نسخة بلا هوية قد تُنشر حيث لا يُنشر الأصل</li>
+      <li>لكنها لا ترث «العام» تلقائيًا: تمر بالتقييم كله</li>
+      <li>والأصل الأصلي يبقى بمستواه وضوابطه</li>
+    </ul>
+    <div class="card c-purple"><h4>في قطاع الجودة</h4><p class="small mb0">نسب الرفض بلا أسماء الموردين: أصل جديد. يصير عامًا إذا لم تعرّف أي خلية موردًا واحدًا.</p></div>
+  </div>
+  <aside class="notes"><p>طرق الإخفاء واختبار إعادة التعريف في LDS-DMG-205 وLDS-DMG-206. هنا الفكرة الوحيدة: الإخفاء ضابط يغيّر الأصل، والتصنيف يتبع النتيجة.</p></aside>
+</section>
+
+<section class="slide" id="retention-disposal" data-lo="LO2" data-n="45" data-session="4">
+  <div class="kicker">الاحتفاظ والإتلاف</div>
+  <h2>لكل أصل مدة، ونهاية المدة قرار يُوقَّع ويُسجل</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>جدول الاحتفاظ</b>مدة لكل البيانات، تُراجع سنويًا</div>
+    <div class="arrow">←</div>
+    <div class="step c-cyan"><b>موافقة</b>ممثل بيانات الأعمال عند نهاية المدة</div>
+    <div class="arrow">←</div>
+    <div class="step c-coral"><b>إتلاف</b>تقطيع متقاطع للورق، ومحو معتمد للوسائط للسري فأعلى</div>
+    <div class="arrow">←</div>
+    <div class="step c-purple"><b>سجل</b>قائمة مفصلة بكل ما أُتلف</div>
+  </div>
+  <div class="callout warn mt small"><b>«نحتفظ دائمًا احتياطًا»</b> ليس جدول احتفاظ، ولا يقبله أي مستوى.</div>
+  <aside class="notes"><p>كل خطوة من قسم الضوابط في السياسة: جدول بمدة لكل البيانات يُراجع دوريًا، وإتلاف آمن بموافقة ممثل بيانات الأعمال، وتمزيق الورق بآلة تقطيع متقاطع، وأحدث طرق الإتلاف الإلكتروني للسري والسري للغاية، وسجل مفصل بما أُتلف. ونظام حماية البيانات الشخصية يضيف: تُتلف البيانات الشخصية حين لا تعود لازمة لغرضها، إلا ما استُثني.</p><p>المصادر: سياسة تصنيف البيانات، القسم 1.4 (الاحتفاظ، والتخلص)؛ نظام حماية البيانات الشخصية، المادة 18.</p></aside>
+</section>
+
+<section class="slide" id="system-ceiling" data-lo="LO2" data-n="46" data-session="4">
+  <div class="kicker">الأنظمة</div>
+  <h2>لكل نظام سقف، والبيانات فوق السقف استثناء أو نقل</h2>
+  <table class="t small">
+    <tr><th>في قطاع الجودة</th><th>معتمد حتى</th><th>ما يعنيه</th></tr>
+    <tr><td>نظام المختبرات</td><td>سري</td><td>النتائج كلها فيه</td></tr>
+    <tr><td>المجلد المشترك للقطاع</td><td>مقيد</td><td>لا يُحفظ فيه السري</td></tr>
+    <tr><td>منصة التعاون السحابية التجارية</td><td>عام</td><td>لا يُرفع إليها غير العام، ولو كان مسودة</td></tr>
+  </table>
+  <div class="callout tip mt small"><b>اقرأ المصفوفة من الجهتين.</b> لكل مستوى ضوابطه، ولكل نظام أعلى مستوى يحمله.</div>
+  <aside class="notes"><p>الأنظمة في هذا المثال افتراضية. في المختبر قائمة أنظمة الهيئة وسقوفها، وفي آخر خطوة تبحث عن أصل محفوظ اليوم فوق سقف نظامه. ذلك الأصل يعود في الجلسة الخامسة استثناءً موثقًا.</p></aside>
+</section>
+
+<section class="slide" id="matrix-shape" data-lo="LO2" data-n="47" data-session="4">
+  <div class="kicker">مصفوفة التعامل</div>
+  <h2>أربعة أسطر وخمسة أعمدة، وفي كل خلية ضابط له اسم</h2>
+  <table class="t small">
+    <tr><th>المستوى</th><th>التخزين</th><th>النقل</th><th>المشاركة</th><th>الاحتفاظ</th><th>الإتلاف</th></tr>
+    <tr><td>عام</td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
+    <tr><td>مقيد</td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
+    <tr><td>سري</td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
+    <tr><td>سري للغاية</td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
+  </table>
+  <ul class="bullets tight small mt">
+    <li>الضابط من الكتالوج، بمرحلته، ومعتمد لذلك المستوى</li>
+    <li>الإلزامي من مستوى ما يظهر في كل سطر فوقه</li>
+  </ul>
+  <aside class="notes"><p>لا تملأ خلية على الشاشة: المصفوفة هي المختبر. اشرح قراءة الكتالوج: لكل ضابط مرحلة، ومن مستوى إلى مستوى، وإلزامي من مستوى ما. ونبّه: في الكتالوج ضوابط تبدو مناسبة ولا تصلح لما فوق العام.</p></aside>
+</section>
+
+<section class="slide" id="check-handling" data-lo="LO2" data-n="48" data-session="4">
+  <div class="kicker">نقطة تحقق</div>
+  <h2>أي ضابط ينقص هذه الخلية؟</h2>
+  <div class="quiz" data-type="single" data-lo="LO2" data-id="check-handling-q1">
+    <p class="lead">في مصفوفة قطاع الجودة، خلية «سري × التخزين» فيها ضابط واحد: «تشفير القرص الصلب لأجهزة الفنيين». ما الذي ينقصها أولًا؟</p>
+    <div class="opts">
+      <div class="opt" data-why="يضيف ضابطًا من مرحلة أخرى، والخلية للتخزين" data-k="أ">الإتلاف بأحدث طرق محو الوسائط المعتمدة</div>
+      <div class="opt" data-ok data-k="ب">مكان معتمد للسري، بقائمة وصول مسماة</div>
+      <div class="opt" data-why="يظن أن التشفير الأقوى يغني عن تحديد أين تُحفظ البيانات ومن يصل إليها" data-k="ج">تشفير أقوى للقرص نفسه</div>
+      <div class="opt" data-why="يخلط بين العلامة والحماية: العلامة لازمة، لكنها لا تحدد مكان الحفظ" data-k="د">علامة الحماية في رأس كل ملف فقط</div>
+    </div>
+    <div class="callout tip why"><b>لماذا.</b> التخزين يُعرف أولًا بالمكان المعتمد للمستوى ومن يصل إليه؛ التشفير طبقة فوقه.</div>
+  </div>
+  <aside class="notes"><p>الإجابة: ب. علامة الحماية إلزامية أيضًا في كل سطر، فمن اختار «د» نصف محق: اسأله ما الذي يمنع حفظ الملف في منصة سحابية لو كانت العلامة وحدها.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-4" data-auto="lab" data-lab="1.4" data-label="المختبر 1.4" data-n="49" data-session="4">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">المختبر 1.4 · 50 دقيقة</div><h2>مصفوفة التعامل</h2><p class="lead small">تبني مصفوفة من أربعة مستويات وخمس مراحل (التخزين، والنقل، والمشاركة، والاحتفاظ، والإتلاف)، في كل خلية ضابط مسمّى من كتالوج الهيئة يصلح لذلك المستوى، حتى تنجح في الفحص.</p><a class="nb" href="../labs/D1_4_handling.html">D1_4_handling.html</a></div><ul class="checklist"><li>اقرأ الأنظمة وكتالوج الضوابط <span class="min">8 د</span></li><li>املأ سطر العام <span class="min">6 د</span></li><li>املأ سطر المقيد <span class="min">10 د</span></li><li>املأ سطري السري والسري للغاية <span class="min">14 د</span></li><li>شغّل الفحص وأصلح <span class="min">8 د</span></li><li>جد أصلًا محفوظًا في نظام غير معتمد لمستواه <span class="min">4 د</span></li><li class="stretch">✱ إضافي: اقترح ضابطًا جديدًا للأرشفة لا يوجد في الكتالوج، وحدد مستوياته ومرحلته</li></ul></div>
+  <aside class="notes"><p>البداية من <span class="ltr">files/handling</span>. راقب من ينسخ ضابطًا واحدًا إلى كل الأسطر: الفحص يرفض ما لا يصلح للمستوى. من ينهي مبكرًا يأخذ التمرين الإضافي. الخطوة الأخيرة تمهّد للمختبر 2.1: اطلب من كل مشارك أن يكتب الأصل الذي وجده.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-4" data-label="بعد المختبر 1.4" data-lo="LO2" data-n="50" data-session="4">
+  <div class="kicker">بعد المختبر 1.4</div>
+  <h2>عشرون خلية، وأربعة فخاخ في الكتالوج</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>الفخاخ</h4><ul class="bullets tight small"><li>تشفير القرص ضابطًا وحيدًا</li><li>رابط في المنصة السحابية، وإتاحة لأي موظف: للعام فقط</li><li>احتفاظ بلا حد: لا يصلح لأي مستوى</li></ul></div>
+    <div class="card c-teal"><h4>الإلزامي</h4><ul class="bullets tight small"><li>العلامة، وجدول الاحتفاظ، وتمزيق الورق: كل الأسطر</li><li>الإتلاف المعتمد المسجل: من المقيد</li><li>الأرشفة المشفرة ومحو الوسائط: من السري</li></ul></div>
+  </div>
+  <div class="callout warn mt small"><b>فوق السقف.</b> تصميم أنظمة الحماية سري، ومحفوظ اليوم في مخزن الملفات المعتمد حتى المقيد.</div>
+  <aside class="notes"><p>من الحل المرجعي: الفحص يجد 20 خلية سليمة من 20. الأصل فوق السقف هو A14 (المصدران F13 وF14)، ويعود في المختبر 2.1 استثناءً بضابط تعويضي وتاريخ انتهاء.</p></aside>
+</section>
+
+<section class="slide" id="wrap-up" data-n="51" data-session="4">
+  <div class="kicker">خلاصة اليوم 1</div>
+  <h2>ثلاثة أمور تبقى معك</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>الأصل قبل المستوى</h4><p class="small mb0">مالك واحد وغرض واحد، والنسخ مواقع له بمستواه.</p></div>
+    <div class="card c-coral"><h4>المبرر قبل الاتفاق</h4><p class="small mb0">من يتضرر وكيف ولماذا ليس الأدنى، والتجميع يُقيَّم كله.</p></div>
+    <div class="card c-purple"><h4>الضابط يتبع المستوى</h4><p class="small mb0">لكل خلية ضابط مسمّى، ولكل نظام سقف.</p></div>
+  </div>
+  <aside class="notes"><p>اطلب من كل مشارك جملة واحدة: ما الذي سيغيره في حصر إدارته غدًا؟</p></aside>
+</section>
+
+<section class="slide dark" id="next" data-label="التالي" data-n="52" data-session="4">
+  <div class="kicker">التالي</div>
+  <h2>اليوم 2: السجل والآلة</h2>
+  <p class="lead">نسجل قرارات اليوم باعتمادها واستثناءاتها، ثم نقيس أين يخطئ الوسم الآلي. أكمل ما لم تنهه من المختبرات، واقرأ قسم الأدوار في سياسة التصنيف.</p>
+  <aside class="notes"><p>ذكّر بالتعلم الذاتي الموجّه: صفحة التدريب فيها أسئلة على اليوم الأول. ومساعد الذكاء الاصطناعي مسموح للشرح فقط، دون لصق أي شيء من الملفات.</p></aside>
+</section>
+</div>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-18T00:44:44Z","version":"2027.1.0","commit":"0a3c3bb"},"course":{"id":"lds-dmg-204","code":"LDS-DMG-204","title":"تصنيف البيانات في التطبيق العملي","track":"executives","lang":"ar","dir":"rtl","url":"https://sdaiaacademy.github.io/lds-dmg-204/","repo":"SDAIAAcademy/lds-dmg-204","home":"../index.html"},"deck":{"id":"day1","kind":"day","day":1,"label":"اليوم 1","title":"من الحصر إلى المستوى إلى الضابط","prev":null,"next":"day2.html","md":"day1.md","alt":{}},"sessions":[{"n":1,"label":"الجلسة 1","title":"ما الذي نصنفه","slide":"s1","outcomes":["تحدد أصول البيانات من سجل الأنظمة ومخزن الملفات، مهيكلة وشبه مهيكلة وغير مهيكلة","تفرق بين الأصل وموقع من مواقعه، وتعامل النسخ والبيانات المستلمة بحسب ذلك","تفصل سؤال البيانات الشخصية عن سؤال مستوى التصنيف"],"minutes":90,"lab":{"id":"1.1","title":"حصر الأصول من السجل ومخزن الملفات","minutes":50,"href":"../labs/D1_1_scope.html"}},{"n":2,"label":"الجلسة 2","title":"الأثر والمستوى","slide":"s2","outcomes":["تقدّر أثر الإفصاح بفئته ودرجته لكل أصل","تطبق الخطوتين 4 و5 حين يكون الأثر منخفضًا","تكتب مبررًا يذكر من يتضرر وكيف ولماذا ليس المستوى الأدنى"],"minutes":90,"lab":{"id":"1.2","title":"تقدير 20 أصلًا وتحديد مستوياتها","minutes":50,"href":"../labs/D1_2_rating.html"}},{"n":3,"label":"الجلسة 3","title":"الخلاف والتجميع","slide":"s3","outcomes":["تقيس الاتفاق بين مصنفين بالنسبة وبمعامل كابا","تحسم الخلاف بدليل من وصف الأصل وخطوات السياسة","تصنف مجموعة مجمّعة بحدها الأدنى ثم بأثرها كله"],"minutes":90,"lab":{"id":"1.3","title":"المطابقة مع زميل وأثر التجميع","minutes":50,"href":"../labs/D1_3_reconcile.html"}},{"n":4,"label":"الجلسة 4","title":"الضوابط تتبع المستوى","slide":"s4","outcomes":["تختار لكل مستوى ومرحلة ضابطًا مسمّى من كتالوج الضوابط","تميّز الضابط الذي لا يصلح لمستوى أعلى","تكتشف أصلًا محفوظًا في نظام غير معتمد لمستواه"],"minutes":90,"lab":{"id":"1.4","title":"مصفوفة التعامل","minutes":50,"href":"../labs/D1_4_handling.html"}}],"slides":[{"id":"title","n":1,"title":"من الحصر إلى المستوى إلى الضابط","kind":"title","session":0,"hash":"a39524ca","md":"#### [day1#title] من الحصر إلى المستوى إلى الضابط\n\n*أكاديمية سدايا · تصنيف البيانات في التطبيق العملي*\n\nاليوم 1: أربع جلسات: ما الذي نصنفه، والأثر والمستوى، والخلاف والتجميع، والضوابط التي تتبع المستوى\n\nمسار التنفيذيين والقادة · يومان تدريبيان + يوم للمشروع الختامي · 4 جلسات · 4 مختبرات · LDS-DMG-204","notes":"ابدأ بسؤال: في جهتك، من قرر آخر مرة أن ملفًا ما «سري»؟ وعلى أي أساس؟ الإجابات المعتادة: «هكذا وصلنا»، أو «احتياطًا». يوم ونصف عن استبدال الاحتياط بتقييم أثر يُراجع ويُسجل ويُقاس.\n\nالحالة: هيئة الجَرين للمخزون الغذائي، جهة افتراضية. أمثلة الشرائح من قطاع الجودة والمختبرات، والمختبرات كلها على إدارة الإمداد والاستيراد، فلا ترى القاعة إجابة مختبر قبل أن تبدأه.","minutes":null,"lo":[]},{"id":"agenda","n":2,"title":"من الحصر إلى المستوى إلى الضابط","kind":"content","session":0,"hash":"ec006e7f","md":"#### [day1#agenda] من الحصر إلى المستوى إلى الضابط\n\n*اليوم*\n\n- **الجلسة 1 · ما الذي نصنفه**: الأصل وحدوده، والنسخ والبيانات المستلمة، والفرق بين التصنيف وحساسية البيانات الشخصية\n- **الجلسة 2 · الأثر والمستوى**: فئات الأثر ودرجاته، والخطوتان 4 و5 للأثر المنخفض، وفئات المقيد، والمبرر في جملة\n- **الجلسة 3 · الخلاف والتجميع**: لماذا يختلف المصنفون، وقياس الاتفاق، والحسم بالدليل، والتجميع الذي يرفع المستوى\n- **الجلسة 4 · الضوابط تتبع المستوى**: علامات الحماية، والوصول، والتشفير، والاحتفاظ، والإتلاف، والأنظمة المعتمدة لكل مستوى","notes":"أربع جلسات، في كل منها أربعون دقيقة للمفاهيم ونقطة التحقق، ثم مختبر من خمسين دقيقة. الاستراحات بزر B. نصف اليوم الثاني للسجل وللوسم الآلي، ثم الاختبار المراقب.","minutes":null,"lo":[]},{"id":"setup-check","n":3,"title":"جدول بيانات، وأداة uv، ومجلد المختبرات: هذا كل التجهيز","kind":"content","session":0,"hash":"6fbd18fd","md":"#### [day1#setup-check] جدول بيانات، وأداة uv، ومجلد المختبرات: هذا كل التجهيز\n\n*قبل أن نبدأ*\n\n- حاسوب محمول، أو Google Colab لمن لا يستطيع التثبيت\n- جدول بيانات يفتح ملفات xlsx (LibreOffice Calc أو Microsoft Excel)\n- أداة uv لتشغيل أدوات الفحص، ومجلد labs من المقرر\n- لا حساب، ولا نموذج يُنزَّل، ولا مفتاح\n\n- **اختبار دقيقة.** في مجلد labs شغّل:\n  ```\n  uv sync\n  uv run kit/maysam.py\n  ```\n  إن طبع «200 items labelled»، فأنت جاهز.","notes":"شغّل uv sync قبل الجلسة الأولى: التثبيت الأول يحتاج اتصالًا ودقيقة. الأدوات تقرأ ملفات الجداول وتطبع [OK] و[FIX]، ولا تكتب في ملفات المشارك.\n\nقاعدة المقرر: لا يُلصق شيء من ملفات المختبرات في أي مساعد ذكاء اصطناعي. الملفات اصطناعية، لكن العادة هي ما نتدرب عليه: ما لم يُصنف يُعامل مقيدًا، والمقيد لا يدخل أدوات الذكاء الاصطناعي التوليدي.","minutes":null,"lo":[]},{"id":"s1","n":4,"title":"ما الذي نصنفه","kind":"section","session":1,"hash":"30978806","md":"#### [day1#s1] ما الذي نصنفه\n\n*الجلسة 1*\n\n- تحدد أصول البيانات من سجل الأنظمة ومخزن الملفات، مهيكلة وشبه مهيكلة وغير مهيكلة\n- تفرق بين الأصل وموقع من مواقعه، وتعامل النسخ والبيانات المستلمة بحسب ذلك\n- تفصل سؤال البيانات الشخصية عن سؤال مستوى التصنيف","notes":"","minutes":null,"lo":["LO1"]},{"id":"recap-101","n":5,"title":"ما تعرفه: أربعة مستويات، والأثر يقود إليها","kind":"content","session":1,"hash":"63dc94f1","md":"#### [day1#recap-101] ما تعرفه: أربعة مستويات، والأثر يقود إليها\n\n*من مقرر الأسس*\n\n| الأثر لو أُفصح عنها | المستوى | من مثال السياسة |\n| --- | --- | --- |\n| عالٍ | **سري للغاية** | تحركات القوات المسلحة |\n| متوسط | **سري** | مواقع التخزين اللوجستي والاقتصادي |\n| منخفض | **مقيد**، أو **عام** بعد خطوتين | البيانات الشخصية للأفراد |\n| لا يوجد أثر | **عام** | الإحصاءات المنشورة |\n\n> **لا نعيد ما درسته.** المبادئ السبعة ومن يصنف: اليوم الثالث من LDS-DMG-101. هنا: الحصر، وفئات المقيد، والتجميع، والضوابط، والسجل، والآلة.","notes":"دقيقتان. من فاته مقرر الأسس يكفيه هذا الجدول وشريحة الأثر في الجلسة الثانية. الأمثلة من الجدول 1 في سياسة تصنيف البيانات.\n\nالمصادر: سياسة تصنيف البيانات (الإصدار الأول، 2020)، القسم 1.3.","minutes":null,"lo":["LO1"]},{"id":"asset-boundary","n":6,"title":"لا تصنيف قبل الحصر، ولا حصر قبل أن تعرف ما الأصل","kind":"content","session":1,"hash":"bbab24ec","md":"#### [day1#asset-boundary] لا تصنيف قبل الحصر، ولا حصر قبل أن تعرف ما الأصل\n\n*الخطوة الأولى في السياسة*\n\n- **جداول نظام واحد.** نتائج الفحص وبنودها في نظام المختبرات: أصل واحد، لغرض واحد.\n- **سلسلة وثائق.** تقارير الفحص الشهرية: أصل واحد، لا اثنا عشر.\n- **صندوق بريد.** بريد المختبر المشترك ومرفقاته: أصل واحد غير مهيكل.\n\n> **الأصل مجموعة بيانات لها مالك واحد وغرض واحد.** يُصنف مرة، ثم يُتبع إلى كل مكان يوجد فيه.","notes":"السياسة تبدأ عملية التصنيف بحصر كل بيانات الجهة، وتجعل نطاقها كل ما تتلقاه الجهة أو تنتجه أيًّا كان شكله: ورق، واجتماعات، وبريد، وصور. تعريف الأصل بالمالك والغرض قاعدة المقرر، وهي ما يجعل الحصر قابلًا للمراجعة.\n\nسؤال للقاعة: من يعدّ كل ملف أصلًا، كم أصلًا يصنف في إدارة واحدة؟ مئات. ومن يجمع الإدارة كلها في أصل واحد يرفع كل شيء إلى أعلى ما فيه.\n\nالمصادر: سياسة تصنيف البيانات، القسمان 1.1 و1.5 (الخطوة 1).","minutes":null,"lo":["LO1"]},{"id":"three-forms","n":7,"title":"الشكل يقرر أين تبحث وكيف توسم، لا المستوى","kind":"content","session":1,"hash":"5f1fa4f1","md":"#### [day1#three-forms] الشكل يقرر أين تبحث وكيف توسم، لا المستوى\n\n*ثلاثة أشكال*\n\n| الشكل | في قطاع الجودة والمختبرات | أين يوضع الوسم |\n| --- | --- | --- |\n| مهيكلة | جداول نظام المختبرات: الشحنة، والعينة، والنتيجة | حقل تصنيف للجدول، وللعمود الحساس |\n| شبه مهيكلة | ملفات XML تصدّرها أجهزة الفحص | في الملف وفي سجل الأصل |\n| غير مهيكلة | تقارير ممسوحة، وصور، وبريد | رأس الوثيقة وتذييلها، وخصائص الملف |\n\n> **أين يقع الخطأ.** غير المهيكل يُنسى في الحصر لأنه لا يظهر في سجل الأنظمة، وهو غالبًا أكثر البيانات انتشارًا.","notes":"المقرر يعدّ الجداول المنظمة في ملفات الجداول مهيكلة، وXML وJSON شبه مهيكلة، والوثائق والممسوحات والبريد والصور غير مهيكلة. ستجد التعريف نفسه في دليل الحصر في المختبر.\n\nاسأل: أين يوجد أكثر بيانات قطاع الجودة؟ في المجلدات المشتركة والبريد، لا في النظام.","minutes":null,"lo":["LO1"]},{"id":"two-sources","n":8,"title":"سجل الأنظمة يرى الجداول، ومخزن الملفات يرى ما نسيه السجل","kind":"content","session":1,"hash":"d9e902b7","md":"#### [day1#two-sources] سجل الأنظمة يرى الجداول، ومخزن الملفات يرى ما نسيه السجل\n\n*من أين يأتي الحصر*\n\n- **سجل الأنظمة.**\n  - الجداول والتصديرات وأعداد صفوفها\n  - يفوته ما خرج من النظام إلى ملف\n  - يضم جداول تقنية لا محتوى أعمال فيها\n- **مخزن الملفات.**\n  - الوثائق والمسودات والممسوحات والصور\n  - النسخ في المجلدات الشخصية\n  - ملفات ينشئها النظام بلا محتوى\n\n> **اقرأ الاثنين معًا.** كل ملف في المخزن إما موقع لأصل في السجل، أو أصل جديد، أو ليس أصلًا.","notes":"إن كان في جهة المشاركين كتالوج بيانات، فهو مصدر ثالث للحصر؛ ضوابط الإدارة الوطنية تطلب استخدامه للحصر حين يوجد. تشغيل الكتالوج نفسه موضوع LDS-DMG-202.\n\nالمصادر: ضوابط ومواصفات إدارة البيانات الوطنية وحوكمتها وحماية البيانات الشخصية، الإصدار 1.5، المواصفة DC.3.1.","minutes":null,"lo":["LO1"]},{"id":"copies-are-locations","n":9,"title":"النسخة موقع للأصل نفسه، ولها ضوابط مستواه","kind":"content","session":1,"hash":"858c1d9a","md":"#### [day1#copies-are-locations] النسخة موقع للأصل نفسه، ولها ضوابط مستواه\n\n*النسخ*\n\n1. **الأصل** نتائج الفحص في نظام المختبرات\n2. **نسخة احتياطية** الجدول نفسه لعام مضى\n3. **تصدير** ملف في مجلد محلل، لا يعرف به أحد\n\n> **التصدير ليس أصلًا جديدًا بمستوى جديد.** هو الأصل نفسه في مكان أضعف: يُنقل إلى النظام أو يُتلف، ويُسجل.","notes":"اضغط لكل خطوة. من يعدّ التصدير أصلًا جديدًا يصنفه وحده، وغالبًا أقل من أصله لأنه «ملف عمل». القاعدة: المستوى يتبع البيانات أينما ذهبت.\n\nاسأل القاعة: كم تصديرًا في مجلداتكم الشخصية من بيانات مقيدة؟ لا تطلب رقمًا، اطلب أن يفكروا فيه.","minutes":null,"lo":["LO1"]},{"id":"received-data","n":10,"title":"ما تستلمه من جهة أخرى داخل حصرك، بالمستوى الذي أعطته","kind":"content","session":1,"hash":"0b64deb0","md":"#### [day1#received-data] ما تستلمه من جهة أخرى داخل حصرك، بالمستوى الذي أعطته\n\n*البيانات المستلمة*\n\n- النطاق كل ما تتلقاه الجهة أو تنتجه، أيًّا كان مصدره\n- ممثل بيانات الأعمال مسؤول عن اتساق تصنيف ما يُتبادل بين الإدارات والجهات\n- إن رأيت المستوى خاطئًا، فارجع إلى الجهة المرسلة، لا تخفضه وحدك\n\n- **في قطاع الجودة.** شهادات تحليل تصل من مختبر معتمد في بلد المنشأ مع كل شحنة: داخل حصر القطاع، ويحتفظ بمستوى المرسل حتى يُراجع.","notes":"قاعدة الاتساق من أدوار ممثل بيانات الأعمال في السياسة: التأكد من أن البيانات المتبادلة بين الإدارات أو الجهات مصنفة ومحمية بصورة متسقة. لا تقل للقاعة إن السياسة تفرض مستوى المرسل حرفيًا؛ قل إن الاتساق مسؤولية، وإن الخلاف يُحل مع المرسل.\n\nالمصادر: سياسة تصنيف البيانات، القسمان 1.1 و1.6.","minutes":null,"lo":["LO1"]},{"id":"not-assets","n":11,"title":"«ليس أصلًا» و«إدارة أخرى» قراران يُكتبان، لا سطران يُحذفان","kind":"content","session":1,"hash":"16688eeb","md":"#### [day1#not-assets] «ليس أصلًا» و«إدارة أخرى» قراران يُكتبان، لا سطران يُحذفان\n\n*ما يُستبعد، وكيف*\n\n- **ليس أصلًا.** ملف قفل ينشئه المحرر، ومصغرات الصور، وجدول تقني يُفرَّغ كل ليلة. لا محتوى أعمال فيها، فلا مستوى لها.\n- **إدارة أخرى.** نسخة من بيانات يملكها قطاع آخر. لا تدخل حصرك، وتُبلَّغ إلى مالكها ليحصرها في موقعها هذا.\n\n> **أين يقع الخطأ.** جدول تقني فيه نسخة من صفوف حقيقية ليس «تقنيًا»: هو موقع للأصل الذي نُسخ منه.","notes":"الاستبعاد المكتوب يجعل الحصر قابلًا للمراجعة: يعرف المراجِع أنك رأيت الملف وقررت. الحذف الصامت لا يُراجع.","minutes":null,"lo":["LO1"]},{"id":"personal-vs-level","n":12,"title":"حساسية البيانات الشخصية سؤال، ومستوى التصنيف سؤال آخر","kind":"content","session":1,"hash":"e116819d","md":"#### [day1#personal-vs-level] حساسية البيانات الشخصية سؤال، ومستوى التصنيف سؤال آخر\n\n*سؤالان مختلفان*\n\n- **فحوص الصحة المهنية لفنيي المختبر.** بيانات صحية، أي حساسة في نظام حماية البيانات الشخصية. وأثر الإفصاح على أفراد معينين محدود: مقيد، ومثال السياسة «الملف الطبي للفرد».\n- **جدول نوبات حراسة خزنة العينات المرجعية.** لا اسم فيه ولا رقم شخصي. وكشفه يسهّل الوصول إلى عينات تُثبت بها نتائج وطنية: أعلى من المقيد.\n\n> **النظام يقرر كيف تعالج البيانات الشخصية.** التصنيف يقرر كيف تحمي أي بيانات من الإفصاح. الأصل يجيب عن السؤالين.","notes":"البيانات الحساسة في نظام حماية البيانات الشخصية: ما يكشف الأصل العرقي أو القبلي، أو المعتقد، أو السوابق الجنائية والأمنية، أو البيانات الحيوية والوراثية للتعريف، أو البيانات الصحية، أو مجهولية الأبوين. وجودها يفرض التزامات معالجة، ولا يرفع المستوى وحده؛ الذي يرفعه حجم الأثر، كأن تكون بيانات صحية لأعداد كبيرة.\n\nمقرر الأسس صنّف خطط الرعاية لمئات المستفيدين «سرية»: هناك الحجم هو الذي رفع. هنا ملف كل فني على حدة.\n\nالمصادر: نظام حماية البيانات الشخصية، المادة 1 (البيانات الحساسة)؛ سياسة تصنيف البيانات، الجدول 1.","minutes":null,"lo":["LO1"]},{"id":"check-scope","n":13,"title":"ماذا تفعل بهذا الملف في الحصر؟","kind":"quiz","session":1,"hash":"1cb354c3","md":"#### [day1#check-scope] ماذا تفعل بهذا الملف في الحصر؟\n\n*نقطة تحقق*\n\n**سؤال:** في مجلد محللة في قطاع الجودة ملف CSV صدّرته من جدول نتائج الفحص في نظام المختبرات قبل شهرين، ولم يُسجل في أي مكان. كيف يدخل الحصر؟\n\n- أ. أصل جديد يصنفه القطاع وحده لأنه ملف مستقل\n- ب. ليس أصلًا، لأنه ملف عمل مؤقت لمحللة\n- ج. موقع للأصل نفسه، يُسجل ثم يُنقل أو يُتلف\n- د. بيانات شخصية للمحللة، فلا تُحصر مع بيانات القطاع","notes":"الإجابة: ج. من اختار «أ» سيصنف في المختبر أصولًا أكثر من اللازم؛ ارجع إلى شريحة النسخ.","minutes":null,"lo":["LO1"]},{"id":"lab-1-1","n":14,"title":"حصر الأصول من السجل ومخزن الملفات","kind":"lab","session":1,"hash":"f048225e","md":"#### [day1#lab-1-1] حصر الأصول من السجل ومخزن الملفات\n\nالمختبر 1.1 · 50 دقيقة\n\nتجمع ستة وثلاثين مصدرًا من سجل الأنظمة ومخزن ملفات إدارة الإمداد والاستيراد في أصول، وتستبعد ما ليس أصلًا وما يخص إدارة أخرى، وتحدد شكل كل أصل وهل فيه بيانات شخصية.\n\n[D1_1_scope.html](https://sdaiaacademy.github.io/lds-dmg-204/labs/D1_1_scope.html)\n\n- [ ] اقرأ موجز الحالة ودليل الحصر (6 د)\n- [ ] اجمع جداول سجل الأنظمة في أصول (12 د)\n- [ ] صنّف ملفات المخزن: المسودات والنسخ وما ليس أصلًا (14 د)\n- [ ] حدد الشكل والبيانات الشخصية لكل أصل (8 د)\n- [ ] شغّل الفحص وأصلح ما يذكره (10 د)\n- [ ] ✱ إضافي: لكل نسخة في مجلد شخصي، اكتب الإجراء (نقل أو إتلاف) ومن يعتمده","notes":"البداية من files/scope/inventory.xlsx ودليل الحصر. راقب من يعطي كل ملف رمزًا جديدًا: اسأله من يملك الملف ولأي غرض. أكثر ما يتعثر فيه الناس: المسودة ونسختها الموقعة، والنسخة الاحتياطية، والتصدير في المجلد الشخصي.\n\nمن لم يثبّت uv: يعمل في الجدول، ويشغّل المدرب الفحص على ملفه في نهاية المختبر.","minutes":null,"lo":[]},{"id":"debrief-1-1","n":15,"title":"ستة وثلاثون مصدرًا، عشرون أصلًا","kind":"content","session":1,"hash":"4e6eb540","md":"#### [day1#debrief-1-1] ستة وثلاثون مصدرًا، عشرون أصلًا\n\n*بعد المختبر 1.1*\n\n- **20** أصلًا لإدارة الإمداد والاستيراد\n- **3** مصادر ليست أصولًا: قفل، ومصغرات، وجدول تقني\n- **2** يملكهما قطاع الجودة: تُبلّغان ولا تُحصران\n\n> **الفخاخ الخمسة.** الحسابات البنكية مع الموردين، والنسخة الاحتياطية مع جدولها، والتصدير في مجلد أروى مع أصله، والمسودة مع مذكرتها الموقعة، والملحق مع خطته.","notes":"الأرقام من الحل المرجعي وsolutions/check.py. البيانات الجمركية المستلمة داخل الحصر بمستوى مرسلها. احتفظ بالتصدير في مجلد أروى: يعود في جلسة الضوابط.","minutes":null,"lo":["LO1"]},{"id":"s2","n":16,"title":"الأثر والمستوى","kind":"section","session":2,"hash":"a29336c3","md":"#### [day1#s2] الأثر والمستوى\n\n*الجلسة 2*\n\n- تقدّر أثر الإفصاح بفئته ودرجته لكل أصل\n- تطبق الخطوتين 4 و5 حين يكون الأثر منخفضًا\n- تكتب مبررًا يذكر من يتضرر وكيف ولماذا ليس المستوى الأدنى","notes":"","minutes":null,"lo":["LO1"]},{"id":"impact-categories","n":17,"title":"أربع فئات للأثر، ولكل منها فئات فرعية","kind":"content","session":2,"hash":"5fe4dee2","md":"#### [day1#impact-categories] أربع فئات للأثر، ولكل منها فئات فرعية\n\n*على من يقع الضرر*\n\n| الفئة | الفئات الفرعية في السياسة |\n| --- | --- |\n| المصلحة الوطنية | سمعة المملكة، والعلاقات الدبلوماسية، والأمن الوطني والنظام العام، والاقتصاد الوطني، والبنى التحتية الوطنية، ومهام الجهات الحكومية |\n| أنشطة الجهات | أرباح الجهات الخاصة، وأعمالها |\n| الأفراد | صحة الأفراد وسلامتهم، والخصوصية |\n| البيئة | الموارد البيئية |\n\n> **قدّر كل فئة تمسها البيانات، ثم خذ أعلاها.** أصل واحد قد يمس الأفراد والاقتصاد معًا.","notes":"الجدول 2 في السياسة يعطي لكل فئة فرعية سؤالًا يُسأل ووصفًا لكل درجة. القائمة غير حصرية، وعلى كل جهة أن تقدّر أثرها بنفسها.\n\nالمصادر: سياسة تصنيف البيانات، الجدول 2 والخطوة 3.أ.","minutes":null,"lo":["LO1"]},{"id":"impact-degree","n":18,"title":"الدرجة من ثلاثة أسئلة: كم يتسع، وكم يدوم، وهل يُتدارك","kind":"content","session":2,"hash":"815c34df","md":"#### [day1#impact-degree] الدرجة من ثلاثة أسئلة: كم يتسع، وكم يدوم، وهل يُتدارك\n\n*كم يبلغ الضرر*\n\n- **عالٍ.** ضرر جسيم طويل لا يمكن تداركه أو إصلاحه.\n- **متوسط.** ضرر جسيم طويل يصعب احتواؤه.\n- **منخفض.** ضرر محدود قصير يمكن احتواؤه.\n- **لا يوجد.** لا ضرر قصير ولا طويل.\n\n> **والمخاطر محددة ومبنية على دليل.** اكتب الضرر الذي يحدث، لا شعورك بحساسية الملف.","notes":"الخطوة 3.ب في السياسة: الدرجة تُحدد بالمدة، وصعوبة الاحتواء، ووقت التعافي، والنطاق (وطني، أو عدة جهات، أو جهة، أو أفراد). السياسة تطلب أن تكون المخاطر محددة ومبنية على دليل لتقليل اجتهاد من يصنف.\n\nالمصادر: سياسة تصنيف البيانات، الخطوة 3.ب.","minutes":null,"lo":["LO1"]},{"id":"level-flow","n":19,"title":"ثلاث درجات تقرر وحدها، والمنخفض يمر بخطوتين","kind":"content","session":2,"hash":"dc1467bb","md":"#### [day1#level-flow] ثلاث درجات تقرر وحدها، والمنخفض يمر بخطوتين\n\n*من الدرجة إلى المستوى*\n\n1. **منخفض** ابدأ هنا\n2. **الخطوة 4** هل يمنع نظامٌ الإفصاح؟ نعم ← مقيد\n3. **الخطوة 5** هل تفوق المنافع الأضرار؟ نعم ← عام، لا ← مقيد\n\nعالٍ ← سري للغاية. متوسط ← سري. لا يوجد ← عام.\n\n> **المنافع في السياسة:** خدمات جديدة ذات قيمة، وشفافية عمل الحكومة، ومشاركة المستفيدين.","notes":"الشكل 2 في السياسة. في القطاع التنموي تبدأ من «الإتاحة هي الأصل»، وفي القطاعين السياسي والأمني من «سري للغاية». هيئة الجَرين تنموية.\n\nالخطوة 4 تذكر أمثلة على الأنظمة؛ في المقرر نستعمل نظام حماية البيانات الشخصية لما فيه بيانات شخصية، ولا نفتي في غيره.\n\nالمصادر: سياسة تصنيف البيانات، الخطوات 3 إلى 5 والشكل 2.","minutes":null,"lo":["LO1"]},{"id":"step5-example","n":20,"title":"أثران منخفضان، وموازنتان مختلفتان","kind":"content","session":2,"hash":"0ab29e3a","md":"#### [day1#step5-example] أثران منخفضان، وموازنتان مختلفتان\n\n*الخطوة 5 في قطاع الجودة*\n\n- **عدد الشحنات المرفوضة شهريًا لكل سلعة.** بلا أسماء موردين. لا نظام يمنع، والثقة في سلامة الغذاء منفعة تفوق ضررًا محدودًا: **عام**.\n- **مسودة تقرير تلوث شحنة قبل التحقق.** لا نظام يمنع، لكن نشر نتيجة لم تُتحقق يضر بالمورد وبالسوق أكثر مما ينفع: **مقيد**، حتى يُتحقق.\n\n> **نتائج الدراسات قبل نشرها** مثال السياسة على المقيد.","notes":"الموازنة ليست ذوقًا: اكتب المنفعة باسمها والضرر باسمه. المثالان من قطاع الجودة، وفي المختبر أصول من النوعين في إدارة الإمداد.\n\nالمصادر: سياسة تصنيف البيانات، الجدول 1 والخطوة 5.","minutes":null,"lo":["LO1"]},{"id":"restricted-groups","n":21,"title":"المقيد ثلاث فئات، بحسب امتداد الأثر","kind":"content","session":2,"hash":"217f9ae1","md":"#### [day1#restricted-groups] المقيد ثلاث فئات، بحسب امتداد الأثر\n\n*فئات المقيد*\n\n| الفئة | إذا امتد الأثر إلى | في قطاع الجودة |\n| --- | --- | --- |\n| **مقيد (أ)** | قطاع كامل، أو نشاط اقتصادي عام | مسودة دراسة جودة الأرز المستورد على مستوى المملكة |\n| **مقيد (ب)** | عدة جهات، أو مجموعة من الأفراد | نتائج الفحص لكل مورد باسمه |\n| **مقيد (ج)** | جهة واحدة، أو فرد معين | إجراءات العمل الداخلية للمختبر |","notes":"الفئات الفرعية من السياسة، بعد الجدول 1. مقرر الأسس لم يستعملها؛ هنا تُكتب في السجل لأنها تفرق بين ضوابط الأصول المقيدة (من يوافق على المشاركة مثلًا). اسأل: لماذا قد تختلف الموافقة على مشاركة (أ) عن (ج)؟\n\nالمصادر: سياسة تصنيف البيانات، القسم 1.3.","minutes":null,"lo":["LO1"]},{"id":"confidential-older","n":22,"title":"«مقيد» في العربية دائمًا، و«سري» قد يعني غيره في الترجمة","kind":"content","session":2,"hash":"f0ebffec","md":"#### [day1#confidential-older] «مقيد» في العربية دائمًا، و«سري» قد يعني غيره في الترجمة\n\n*الأسماء في النصوص*\n\n| النص | المستوى الثاني من الأسفل |\n| --- | --- |\n| سياسة تصنيف البيانات، بالعربية والإنجليزية | مقيد · Restricted |\n| الضوابط والمواصفات (1.5)، بالعربية | مقيدة |\n| الضوابط والمواصفات (1.5)، بالإنجليزية | Confidential |\n| مبادئ الذكاء الاصطناعي التوليدي، بالإنجليزية | restricted, confidential, and top secret |\n\n> **أين يقع الخطأ.** من يقرأ Confidential فيترجمها «سري» يرفع المقيد درجة. في السجل اكتب أسماء السياسة.","notes":"الجدول من قراءة النصوص نفسها. النسخة الإنجليزية من الضوابط والمواصفات (الإصدار 1.5) تسمي المستوى المنخفض الأثر Confidential في المواصفة DC.3.2، والنسخة العربية تقول «مقيدة». وفي الإنجليزية من مبادئ الذكاء الاصطناعي التوليدي يرد القوس «restricted, confidential, and top secret»، بلا Secret.\n\nالمصادر: سياسة تصنيف البيانات؛ الضوابط والمواصفات 1.5، DC.3.2 (العربية والإنجليزية)؛ مبادئ الذكاء الاصطناعي التوليدي للجهات الحكومية، القسم 3.5.","minutes":null,"lo":["LO1"]},{"id":"unclassified-is-restricted","n":23,"title":"ما لم يُصنف يُعامل مقيدًا حتى يُصنف","kind":"content","session":2,"hash":"38b9ae9f","md":"#### [day1#unclassified-is-restricted] ما لم يُصنف يُعامل مقيدًا حتى يُصنف\n\n*قبل أن يُصنف*\n\n- البيانات تُصنف عند إنشائها أو استلامها، ولمدة محددة\n- ما لم يُصنف يُعامل «مقيدًا» حتى يُصنف تصنيفًا صحيحًا\n- وما سبق السياسة يُصنف بخطة عمل يعتمدها رئيس الجهة\n\n- **لماذا يهمك هذا.** ملف لم يُصنف ليس «عامًا لأن أحدًا لم يقل غير ذلك». لا يُنشر، ولا يدخل أداة ذكاء اصطناعي توليدي.","notes":"المبدأ 3 (التصنيف في الوقت المناسب) وأول فقرة في ضوابط التصنيف. سنعود إلى هذه القاعدة في الجلسة السادسة: مسار آلي يسم «عام» كل ما لم يجد فيه شيئًا يخالفها.\n\nالمصادر: سياسة تصنيف البيانات، القسمان 1.2 و1.4.","minutes":null,"lo":["LO1"]},{"id":"rationale","n":24,"title":"المبرر جملة: من يتضرر، وكيف، ولماذا ليس الأدنى","kind":"content","session":2,"hash":"e6718533","md":"#### [day1#rationale] المبرر جملة: من يتضرر، وكيف، ولماذا ليس الأدنى\n\n*المبرر*\n\n- **مبرر ضعيف.** «نتائج حساسة ومهمة للقطاع.»\n- **مبرر يُراجع.** «مقيد (ب): نتائج الفحص لكل مورد باسمه تضر بسمعة عدة موردين ضررًا محدودًا يُتدارك؛ ليست عامة لأن نشر نتائج قيد الاعتراض يفوق ضرره منفعته.»\n\n> **المراجِع يراجع المبرر، لا المستوى.** مستوى بلا مبرر لا يُراجع.","notes":"في المختبر عمود rationale، والفحص يرفض ما هو أقصر من جملة. المبرر هو ما تقرؤه مراجِعة التصنيف في الجلسة الخامسة، وهو ما تعود إليه حين يُعترض.","minutes":null,"lo":["LO1"]},{"id":"check-impact","n":25,"title":"ما مستوى هذا الأصل؟","kind":"quiz","session":2,"hash":"e20d85d1","md":"#### [day1#check-impact] ما مستوى هذا الأصل؟\n\n*نقطة تحقق*\n\n**سؤال:** جدول في قطاع الجودة بنتائج الفحص الطبي الدوري لثلاثين فنيًا، بأسمائهم. كشفه يضر بكل فني ضررًا محدودًا يُتدارك. ما المستوى؟\n\n- أ. مقيد، لأن نظام حماية البيانات الشخصية يمنع الإفصاح عنها\n- ب. سري، لأن البيانات الصحية بيانات حساسة في النظام\n- ج. عام، لأن الأثر منخفض ومنفعة الشفافية أكبر\n- د. سري للغاية، لأن الفحص الطبي يمس السلامة","notes":"الإجابة: أ. من اختار «ب» يخلط حساسية البيانات الشخصية بالمستوى؛ ارجع إلى شريحة «سؤالان مختلفان». فئة المقيد هنا (ب): مجموعة من الأفراد.","minutes":null,"lo":["LO1"]},{"id":"lab-1-2","n":26,"title":"تقدير 20 أصلًا وتحديد مستوياتها","kind":"lab","session":2,"hash":"8864238b","md":"#### [day1#lab-1-2] تقدير 20 أصلًا وتحديد مستوياتها\n\nالمختبر 1.2 · 50 دقيقة\n\nتقدّر أثر الإفصاح لعشرين أصلًا اصطناعيًا، وتحدد مستوى كل منها وفئة المقيد ومبرره، حتى يطابق المرجع في ستة عشر أصلًا على الأقل دون أن يُصنف أصل من المستويين الأعليين عامًا.\n\n[D1_2_rating.html](https://sdaiaacademy.github.io/lds-dmg-204/labs/D1_2_rating.html)\n\n- [ ] اقرأ دليل الأثر والأصول الثلاثة الأولى (6 د)\n- [ ] قدّر الأصول من A01 إلى A10 (16 د)\n- [ ] قدّر الأصول من A11 إلى A20 (16 د)\n- [ ] شغّل الفحص وأصلح ما لا يتسق (7 د)\n- [ ] قارن مبررين مع زميلك (5 د)\n- [ ] ✱ إضافي: لأصلين مقيدين بعد الخطوة 5، اكتب لماذا ليسا عامين بجملة يقبلها مراجِع","notes":"البداية من files/rating/assets_20.xlsx؛ لا تحتاج نتيجة المختبر 1.1. راقب الوقت: بعد ست عشرة دقيقة من الخطوة الثانية انتقل بهم إلى A11 مهما كانوا. أكثر خطأ: رفع كل ما فيه بيانات شخصية إلى «سري»، ونسيان الخطوة 5.","minutes":null,"lo":[]},{"id":"debrief-1-2","n":27,"title":"أصل سري للغاية، وأربعة سرية، وأحد عشر مقيدًا، وأربعة عامة","kind":"content","session":2,"hash":"b332a062","md":"#### [day1#debrief-1-2] أصل سري للغاية، وأربعة سرية، وأحد عشر مقيدًا، وأربعة عامة\n\n*بعد المختبر 1.2*\n\n| البند | القيمة |\n| --- | --- |\n| سري للغاية | 1 |\n| سري | 4 |\n| مقيد | 11 |\n| عام | 4 |\n\n> **ثلاثة دروس.** مسح الأسعار أثره منخفض ويصير عامًا في الخطوة 5. المحاضر ومسودة الدراسة تبقيان مقيدتين (أ). وتصميم الحماية يُقبل سريًا أو مقيدًا بمبرر.","notes":"من الحل المرجعي: الفحص يطابقه في 20 من 20. سري للغاية: خطة السحب في الأزمات. سري: أرصدة المواقع، وسجل المواقع، ومذكرة التفاهم الدولية، وتصميم الحماية. اطلب ممن طابق أقل من ستة عشر أن يقرأ مبررات الأصول التي اختلف فيها، لا المستوى وحده.","minutes":null,"lo":["LO1"]},{"id":"s3","n":28,"title":"الخلاف والتجميع","kind":"section","session":3,"hash":"b647e17e","md":"#### [day1#s3] الخلاف والتجميع\n\n*الجلسة 3*\n\n- تقيس الاتفاق بين مصنفين بالنسبة وبمعامل كابا\n- تحسم الخلاف بدليل من وصف الأصل وخطوات السياسة\n- تصنف مجموعة مجمّعة بحدها الأدنى ثم بأثرها كله","notes":"","minutes":null,"lo":["LO1"]},{"id":"why-disagree","n":29,"title":"الخلاف يأتي من ثلاثة مصادر، وكلها تُعالج بالدليل","kind":"content","session":3,"hash":"ffa420e6","md":"#### [day1#why-disagree] الخلاف يأتي من ثلاثة مصادر، وكلها تُعالج بالدليل\n\n*لماذا يختلف المصنفون*\n\n- **قراءة النطاق.** هل يمس الضرر موردًا واحدًا أم السوق كلها؟\n- **الخطوتان 4 و5.** أحدهما رأى نظامًا يمنع، والآخر وازن المنافع مباشرة.\n- **حقيقة غائبة.** أحدهما يعرف أن الملف يخص منشأة حيوية، والآخر لا.\n\n> **الخلاف معلومة.** يدلك على أصل وصفه ناقص أو دليلك غامض.","notes":"اسأل القاعة: في المختبر 1.2، أين اختلفتم مع جيرانكم؟ غالبًا في الأصول المنخفضة الأثر، لأن الخطوة 5 موازنة.","minutes":null,"lo":["LO1"]},{"id":"agreement-kappa","n":30,"title":"النسبة تبالغ، ومعامل كابا يطرح ما يتفق عليه الحظ","kind":"content","session":3,"hash":"7cb1ccf4","md":"#### [day1#agreement-kappa] النسبة تبالغ، ومعامل كابا يطرح ما يتفق عليه الحظ\n\n*قياس الاتفاق*\n\n- **80%** اتفاق مراجعَين في قطاع الجودة على عشرة أصول\n- **0.63** كابا للمراجعَين أنفسهما\n- **0.00** كابا لمن يقول «مقيد» دائمًا، واتفاقه 60%\n\n> **كابا = (الاتفاق − اتفاق الحظ) ÷ (1 − اتفاق الحظ).** اتفاق الحظ من تكرار كل مستوى عند كل مصنف.","notes":"الأرقام من مثال في قطاع الجودة محسوب في أدوات المقرر: المراجعان اتفقا في 8 من 10، واتفاق الحظ 0.46، فكابا 0.63. مصنف كسول يقول «مقيد» لكل شيء يتفق مع الثاني في 6 من 10، وكابا عنده صفر: لا معلومة فوق الحظ.\n\nلا تدخل في جداول التفسير المشهورة لقيم كابا؛ يكفي أن القيمة القريبة من الصفر لا تعني شيئًا، وأن المقارنة بين جولتين أهم من الرقم وحده.","minutes":null,"lo":["LO1"]},{"id":"agree-not-right","n":31,"title":"اثنان قد يتفقان على الخطأ نفسه، ولهذا توجد المراجعة","kind":"content","session":3,"hash":"79ddb5ac","md":"#### [day1#agree-not-right] اثنان قد يتفقان على الخطأ نفسه، ولهذا توجد المراجعة\n\n*الاتفاق ليس صوابًا*\n\n- المصنفان قد يشتركان في سوء قراءة واحد\n- المراجِع في مكتب إدارة البيانات يراجع المستوى خلال شهر من التصنيف الأولي\n- المراجِع يقرأ المبرر ويختبره بأسئلة الأثر، لا بعدد من اتفقوا\n\n- **في قطاع الجودة.** اتفق مصنفان على أن إجراءات المختبر «عامة» لأنها «تقنية». المراجِعة وجدت فيها خطوات فتح خزنة العينات.","notes":"الخطوة 6 في السياسة: مراجِع تصنيف البيانات، موظف في مكتب إدارة البيانات، يتحقق أن المستوى الأنسب، خلال شهر من التصنيف الأولي.\n\nالمصادر: سياسة تصنيف البيانات، الخطوة 6 والقسم 1.6.","minutes":null,"lo":["LO1"]},{"id":"reconcile-flow","n":32,"title":"ثلاث خطوات، والرابعة تصعيد","kind":"content","session":3,"hash":"d25a01cf","md":"#### [day1#reconcile-flow] ثلاث خطوات، والرابعة تصعيد\n\n*حسم الخلاف*\n\n1. **1 · الدليل** عد إلى وصف الأصل: ماذا فيه فعلًا؟\n2. **2 · الخطوة** سمِّ الخطوة التي يختلف فيها الرأيان\n3. **3 · القرار** المستوى ومبرره في سطر\n4. **4 · تصعيد** إن بقي الخلاف: المستوى الأعلى مؤقتًا","notes":"اضغط لكل خطوة. المستوى الأعلى مؤقتًا قاعدة المقرر، مبنية على أن ما لم يُصنف تصنيفًا صحيحًا يُعامل مقيدًا على الأقل، وعلى مبدأ أعلى مستوى. التصعيد نفسه موضوع الجلسة الخامسة.","minutes":null,"lo":["LO1"]},{"id":"aggregation-floor","n":33,"title":"المجموعة لا تنزل عن أعلى مكوّناتها، ثم تُقيَّم كلها","kind":"content","session":3,"hash":"dffdaff2","md":"#### [day1#aggregation-floor] المجموعة لا تنزل عن أعلى مكوّناتها، ثم تُقيَّم كلها\n\n*التجميع*\n\n- **1 · الحد الأدنى.** مبدأ أعلى مستوى: المجموعة التي تضم مستويات مختلفة تأخذ أعلاها. وممثل بيانات الأعمال مسؤول عن تصنيف المجمّع من مصادر متعددة بأعلى مستوياتها.\n- **2 · أثر المجموعة.** ثم قدّر أثر المجموعة كأنها أصل جديد. إن كشف اجتماعها شيئًا لا يكشفه أي مكوّن، فقد يرتفع المستوى.","notes":"الخطوة الأولى من السياسة نصًّا: المبدأ 4، ودور ممثل بيانات الأعمال في «تجميع البيانات». الخطوة الثانية تطبيق الخطوة 3 على المجموعة بوصفها بيانات جديدة؛ هذا منطق المقرر، لا نص في السياسة.\n\nالمصادر: سياسة تصنيف البيانات، المبدأ 4 والقسم 1.6.","minutes":null,"lo":["LO1"]},{"id":"aggregation-raises","n":34,"title":"مقيد ومقيد قد يكوّنان سريًا","kind":"content","session":3,"hash":"26f82afc","md":"#### [day1#aggregation-raises] مقيد ومقيد قد يكوّنان سريًا\n\n*مثال من قطاع الجودة*\n\n- **دليل فنيي المختبر المركزي.** مقيد: أسماء وجوالات.\n- **جدول نوبات الحراسة.** مقيد: أوقات بلا أسماء.\n- **الاثنان في ملف واحد.** يكشف متى تخلو خزنة العينات المرجعية ومن يحمل مفتاحها: **سري**.\n\n> **اسأل:** ما المعلومة الجديدة التي لم تكن في أي مكوّن؟ إن لم تجد، فالحد الأدنى هو المستوى.","notes":"المثال افتراضي من قطاع الجودة. في المختبر ثلاث مجموعات من إدارة الإمداد: واحدة يرفعها التجميع، وواحدة لا يرفعها، وواحدة لا يُنزلها حذف الأسماء. لا تكشف أيها أيها.","minutes":null,"lo":["LO1"]},{"id":"aggregation-not-lower","n":35,"title":"حذف الأسماء لا يُنزل المستوى إذا عرّفت الخلية صاحبها","kind":"content","session":3,"hash":"65ac9aa6","md":"#### [day1#aggregation-not-lower] حذف الأسماء لا يُنزل المستوى إذا عرّفت الخلية صاحبها\n\n*والعكس*\n\n- جدول مجمّع بلا أسماء قد يبقى مقيدًا\n- إذا لم يكن في خلية إلا جهة واحدة أو شخص واحد، فالمجموع هو بياناته\n- الإنزال إلى «عام» قرار جديد يمر بالتقييم كله\n\n- **في قطاع الجودة.** نسبة الرفض لكل سلعة ومنفذ. في منفذ لا يورد منه الأرز إلا مورد واحد، النسبة هي نسبة ذلك المورد.\n\n> **إخفاء الهوية وأدواته** بالتفصيل في LDS-DMG-205 وLDS-DMG-206.","notes":"لا تدخل في طرق الإخفاء هنا. الفكرة الوحيدة: التجميع ليس إخفاءً تلقائيًا، والمستوى لا ينزل إلا بتقييم.","minutes":null,"lo":["LO1"]},{"id":"over-under","n":36,"title":"التفريط يكشف، والإفراط يحجب ما ينبغي أن يُشارك","kind":"content","session":3,"hash":"0361acdb","md":"#### [day1#over-under] التفريط يكشف، والإفراط يحجب ما ينبغي أن يُشارك\n\n*الضرران*\n\n- **التفريط: مستوى أقل من الأثر.**\n  - ضوابط أضعف مما يلزم\n  - نشر أو مشاركة لما لا يُنشر\n  - دخول أدوات لا يُسمح لها\n- **الإفراط: مستوى أعلى من الأثر.**\n  - بيانات تنموية لا تُتاح ولا تُشارك\n  - كلفة ضوابط بلا حاجة\n  - استثناءات كثيرة تُضعف الثقة في المستويات\n\n> **الإتاحة هي الأصل في القطاع التنموي.** الإفراط ليس أمانًا، بل خطأ من نوع آخر.","notes":"المبدأ 1 (الإتاحة هي الأصل) والمبدأ 2 (الضرورة والتناسب): المستوى يوازن القيمة مقابل السرية. في الكتالوج تقيس الجهة نسبة البيانات المنخفضة الأثر المصنفة «مقيدة»؛ المؤشر موجود لأن الإفراط مشكلة معروفة.\n\nالمصادر: سياسة تصنيف البيانات، القسم 1.2؛ الضوابط والمواصفات 1.5، DC.4.1.","minutes":null,"lo":["LO1"]},{"id":"check-reconcile","n":37,"title":"ما مستوى المجموعة؟","kind":"quiz","session":3,"hash":"16234ce2","md":"#### [day1#check-reconcile] ما مستوى المجموعة؟\n\n*نقطة تحقق*\n\n**سؤال:** لوحة في قطاع الجودة تجمع عدد العينات المفحوصة يوميًا (عام) مع قائمة الفنيين المناوبين بأسمائهم (مقيد). لا يكشف اجتماعهما شيئًا غير ما في كل منهما. ما مستوى اللوحة؟\n\n- أ. عام، لأن أغلب ما في اللوحة أعداد منشورة\n- ب. سري، لأن كل تجميع يرفع المستوى درجة\n- ج. بين العام والمقيد، فتُنشر الأعداد وتُحجب الأسماء\n- د. مقيد، أعلى المكوّنين، ولا أثر جديد يرفعه","notes":"الإجابة: د. من اختار «ب» يحتاج سؤال المعلومة الجديدة. من اختار «ج» محق في أن الأعداد تُنشر، لكن منفصلة، لا اللوحة.","minutes":null,"lo":["LO1"]},{"id":"lab-1-3","n":38,"title":"المطابقة مع زميل وأثر التجميع","kind":"lab","session":3,"hash":"f044efad","md":"#### [day1#lab-1-3] المطابقة مع زميل وأثر التجميع\n\nالمختبر 1.3 · 50 دقيقة\n\nتقارن تقديرين للأصول العشرين، وتحسم كل خلاف بدليل، ثم تصنف ثلاث مجموعات بيانات مجمّعة: واحدة يرفعها التجميع، وواحدة لا يرفعها، وواحدة لا يُنزلها حذف الأسماء.\n\n[D1_3_reconcile.html](https://sdaiaacademy.github.io/lds-dmg-204/labs/D1_3_reconcile.html)\n\n- [ ] شغّل أداة الاتفاق على ملفي الزميلين أو ملفك وملف زميلك (6 د)\n- [ ] احسم الخلافات الستة، لكل منها دليل (18 د)\n- [ ] صنّف المجموعات المجمّعة الثلاث (14 د)\n- [ ] شغّل الفحص (6 د)\n- [ ] اكتب ضرر الإفراط وضرر التفريط لأصلين (6 د)\n- [ ] ✱ إضافي: احسب الاتفاق بين ملفك والمرجع، وفسّر الفرق بين النسبة ومعامل كابا","notes":"البداية من ملفي الزميلين الجاهزين. من أنهى 1.2 مع زميل يقارن ملفيهما للنقاش، ويملأ الورقة بخلافات الملفين الجاهزين ليعمل الفحص. راقب من يحسم الخلاف بالتصويت أو بالأقدمية: اسأله عن الجملة في وصف الأصل.","minutes":null,"lo":[]},{"id":"debrief-1-3","n":39,"title":"اتفاق 70٪، وكابا 0.52، وخطأ مشترك واحد","kind":"content","session":3,"hash":"032d9cfd","md":"#### [day1#debrief-1-3] اتفاق 70٪، وكابا 0.52، وخطأ مشترك واحد\n\n*بعد المختبر 1.3*\n\n- **14/20** اتفق الزميلان على المستوى\n- **0.52** كابا\n- **1** أصل اتفقا عليه وأخطآ: أسعار العقود «عامة»\n\n> **المجموعات الثلاث.** لوحة الإمداد سرية: الرحلات مع السعة المنشورة تكشف امتلاء المواقع. دليل الفريق مقيد. وواردات الموانئ مقيدة رغم حذف الأسماء.","notes":"الأرقام من kit/agreement.py على ملفي الزميلين. الخلافات الستة: خطة السحب، ورحلات الشاحنات، وتصميم الحماية، ومسح الأسعار، ودليل الهواتف، وصور الحملة. اسأل: من كان سيكتشف خطأ أسعار العقود لو لم يكن هناك مراجِع؟","minutes":null,"lo":["LO1"]},{"id":"s4","n":40,"title":"الضوابط تتبع المستوى","kind":"section","session":4,"hash":"f2d4ac35","md":"#### [day1#s4] الضوابط تتبع المستوى\n\n*الجلسة 4*\n\n- تختار لكل مستوى ومرحلة ضابطًا مسمّى من كتالوج الضوابط\n- تميّز الضابط الذي لا يصلح لمستوى أعلى\n- تكتشف أصلًا محفوظًا في نظام غير معتمد لمستواه","notes":"","minutes":null,"lo":["LO2"]},{"id":"control-families","n":41,"title":"المستوى يُترجم إلى ضوابط في تسعة مواضع","kind":"content","session":4,"hash":"3a236a72","md":"#### [day1#control-families] المستوى يُترجم إلى ضوابط في تسعة مواضع\n\n*ما تطلبه السياسة*\n\n- **العلامة والوصول والاستخدام.** علامة حماية بالمستوى، ووصول بالحاجة إلى المعرفة، واستخدام في المواضع المحددة.\n- **التخزين والمشاركة والأرشفة.** لا يُترك المقيد فأعلى دون مراقبة، ويُشفَّر، ويُشارك بوسائل متفق عليها.\n- **الاحتفاظ والإتلاف ورفع التصنيف.** جدول احتفاظ يُراجع، وإتلاف بموافقة وسجل، ومحفزات لرفع التصنيف.\n\n> **التفصيل الفني** في ضوابط الهيئة الوطنية للأمن السيبراني، والسياسة تحيل إليها.","notes":"الأمثلة التسعة من قسم ضوابط التصنيف في السياسة: علامات الحماية، والوصول، والاستخدام، والتخزين، ومشاركة البيانات، والاحتفاظ، والتخلص، والأرشفة، ورفع التصنيف. المصفوفة في المختبر بخمس مراحل يطلبها ناتج التعلم الثاني: التخزين، والنقل، والمشاركة، والاحتفاظ، والإتلاف.\n\nالمصادر: سياسة تصنيف البيانات، القسم 1.4. ضوابط الأمن السيبراني للبيانات مذكورة باسمها وعنوانها فقط.","minutes":null,"lo":["LO2"]},{"id":"marking","n":42,"title":"العلامة تُكتب حيث يقرؤها من يتعامل مع البيانات","kind":"content","session":4,"hash":"e348c0f4","md":"#### [day1#marking] العلامة تُكتب حيث يقرؤها من يتعامل مع البيانات\n\n*وسم الملفات والسجلات والحقول*\n\n| ما يُوسم | أين العلامة | في قطاع الجودة |\n| --- | --- | --- |\n| وثيقة أو بريد | رأس الوثيقة وتذييلها، وسطر الموضوع | تقرير فحص شحنة: «مقيد (ب)» |\n| سجل في جدول | حقل التصنيف في السجل أو الجدول | جدول النتائج: حقل للمستوى |\n| حقل حساس | وسم للعمود في الكتالوج | عمود اسم المورد في جدول النتائج |\n\n> **العلامة على العام أيضًا.** «عام» مكتوبة تقول إن أحدًا قرر، لا أن أحدًا نسي.","notes":"السياسة تطلب علامات حماية للوثائق الورقية والإلكترونية، والبريد منها، بحسب كل مستوى. وسم العمود يجعل إخفاءه في التقارير والنسخ ممكنًا آليًا؛ تشغيل ذلك في الكتالوج في LDS-DMG-202.\n\nالمصادر: سياسة تصنيف البيانات، القسم 1.4 (علامات الحماية).","minutes":null,"lo":["LO2"]},{"id":"access-encryption","n":43,"title":"الوصول يقرر من يرى، والتشفير يحمي حين يفشل الوصول","kind":"content","session":4,"hash":"34b7b7e4","md":"#### [day1#access-encryption] الوصول يقرر من يرى، والتشفير يحمي حين يفشل الوصول\n\n*الوصول والتشفير*\n\n- **الوصول.**\n  - الحاجة إلى المعرفة، وأقل صلاحيات ممكنة\n  - يُلغى فور انتهاء خدمة الموظف\n  - قائمة مسمّاة كلما ارتفع المستوى\n- **التشفير.**\n  - للمقيد فأعلى حين يُخزن دون مراقبة\n  - بآليات تعتمدها الهيئة الوطنية للأمن السيبراني\n  - لا يحمي من شخص يملك المفتاح\n\n> **أين يقع الخطأ.** «القرص مشفر» ليس ضابط تخزين كاملًا: لا يقول أين تُحفظ البيانات ولا من يصل إليها.","notes":"هذا ما يُفترض أن يعرفه المشارك قبل المقرر: الوصول يمنع من لا صلاحية له، والتشفير يجعل البيانات غير مقروءة لمن وصل إلى الوسيط دون المفتاح. في الكتالوج ضابط فخ عن تشفير القرص وحده.\n\nالمصادر: سياسة تصنيف البيانات، القسم 1.4 (الوصول، والتخزين).","minutes":null,"lo":["LO2"]},{"id":"anonymisation","n":44,"title":"الإخفاء ينتج أصلًا جديدًا يُقيَّم من جديد","kind":"content","session":4,"hash":"ef09ce4b","md":"#### [day1#anonymisation] الإخفاء ينتج أصلًا جديدًا يُقيَّم من جديد\n\n*إخفاء الهوية*\n\n- نسخة بلا هوية قد تُنشر حيث لا يُنشر الأصل\n- لكنها لا ترث «العام» تلقائيًا: تمر بالتقييم كله\n- والأصل الأصلي يبقى بمستواه وضوابطه\n\n- **في قطاع الجودة.** نسب الرفض بلا أسماء الموردين: أصل جديد. يصير عامًا إذا لم تعرّف أي خلية موردًا واحدًا.","notes":"طرق الإخفاء واختبار إعادة التعريف في LDS-DMG-205 وLDS-DMG-206. هنا الفكرة الوحيدة: الإخفاء ضابط يغيّر الأصل، والتصنيف يتبع النتيجة.","minutes":null,"lo":["LO2"]},{"id":"retention-disposal","n":45,"title":"لكل أصل مدة، ونهاية المدة قرار يُوقَّع ويُسجل","kind":"content","session":4,"hash":"13f38326","md":"#### [day1#retention-disposal] لكل أصل مدة، ونهاية المدة قرار يُوقَّع ويُسجل\n\n*الاحتفاظ والإتلاف*\n\n1. **جدول الاحتفاظ** مدة لكل البيانات، تُراجع سنويًا\n2. **موافقة** ممثل بيانات الأعمال عند نهاية المدة\n3. **إتلاف** تقطيع متقاطع للورق، ومحو معتمد للوسائط للسري فأعلى\n4. **سجل** قائمة مفصلة بكل ما أُتلف\n\n> **«نحتفظ دائمًا احتياطًا»** ليس جدول احتفاظ، ولا يقبله أي مستوى.","notes":"كل خطوة من قسم الضوابط في السياسة: جدول بمدة لكل البيانات يُراجع دوريًا، وإتلاف آمن بموافقة ممثل بيانات الأعمال، وتمزيق الورق بآلة تقطيع متقاطع، وأحدث طرق الإتلاف الإلكتروني للسري والسري للغاية، وسجل مفصل بما أُتلف. ونظام حماية البيانات الشخصية يضيف: تُتلف البيانات الشخصية حين لا تعود لازمة لغرضها، إلا ما استُثني.\n\nالمصادر: سياسة تصنيف البيانات، القسم 1.4 (الاحتفاظ، والتخلص)؛ نظام حماية البيانات الشخصية، المادة 18.","minutes":null,"lo":["LO2"]},{"id":"system-ceiling","n":46,"title":"لكل نظام سقف، والبيانات فوق السقف استثناء أو نقل","kind":"content","session":4,"hash":"1f79dbfe","md":"#### [day1#system-ceiling] لكل نظام سقف، والبيانات فوق السقف استثناء أو نقل\n\n*الأنظمة*\n\n| في قطاع الجودة | معتمد حتى | ما يعنيه |\n| --- | --- | --- |\n| نظام المختبرات | سري | النتائج كلها فيه |\n| المجلد المشترك للقطاع | مقيد | لا يُحفظ فيه السري |\n| منصة التعاون السحابية التجارية | عام | لا يُرفع إليها غير العام، ولو كان مسودة |\n\n> **اقرأ المصفوفة من الجهتين.** لكل مستوى ضوابطه، ولكل نظام أعلى مستوى يحمله.","notes":"الأنظمة في هذا المثال افتراضية. في المختبر قائمة أنظمة الهيئة وسقوفها، وفي آخر خطوة تبحث عن أصل محفوظ اليوم فوق سقف نظامه. ذلك الأصل يعود في الجلسة الخامسة استثناءً موثقًا.","minutes":null,"lo":["LO2"]},{"id":"matrix-shape","n":47,"title":"أربعة أسطر وخمسة أعمدة، وفي كل خلية ضابط له اسم","kind":"content","session":4,"hash":"834383be","md":"#### [day1#matrix-shape] أربعة أسطر وخمسة أعمدة، وفي كل خلية ضابط له اسم\n\n*مصفوفة التعامل*\n\n| المستوى | التخزين | النقل | المشاركة | الاحتفاظ | الإتلاف |\n| --- | --- | --- | --- | --- | --- |\n| عام |  |  |  |  |  |\n| مقيد |  |  |  |  |  |\n| سري |  |  |  |  |  |\n| سري للغاية |  |  |  |  |  |\n\n- الضابط من الكتالوج، بمرحلته، ومعتمد لذلك المستوى\n- الإلزامي من مستوى ما يظهر في كل سطر فوقه","notes":"لا تملأ خلية على الشاشة: المصفوفة هي المختبر. اشرح قراءة الكتالوج: لكل ضابط مرحلة، ومن مستوى إلى مستوى، وإلزامي من مستوى ما. ونبّه: في الكتالوج ضوابط تبدو مناسبة ولا تصلح لما فوق العام.","minutes":null,"lo":["LO2"]},{"id":"check-handling","n":48,"title":"أي ضابط ينقص هذه الخلية؟","kind":"quiz","session":4,"hash":"654221d0","md":"#### [day1#check-handling] أي ضابط ينقص هذه الخلية؟\n\n*نقطة تحقق*\n\n**سؤال:** في مصفوفة قطاع الجودة، خلية «سري × التخزين» فيها ضابط واحد: «تشفير القرص الصلب لأجهزة الفنيين». ما الذي ينقصها أولًا؟\n\n- أ. الإتلاف بأحدث طرق محو الوسائط المعتمدة\n- ب. مكان معتمد للسري، بقائمة وصول مسماة\n- ج. تشفير أقوى للقرص نفسه\n- د. علامة الحماية في رأس كل ملف فقط","notes":"الإجابة: ب. علامة الحماية إلزامية أيضًا في كل سطر، فمن اختار «د» نصف محق: اسأله ما الذي يمنع حفظ الملف في منصة سحابية لو كانت العلامة وحدها.","minutes":null,"lo":["LO2"]},{"id":"lab-1-4","n":49,"title":"مصفوفة التعامل","kind":"lab","session":4,"hash":"b9857bf8","md":"#### [day1#lab-1-4] مصفوفة التعامل\n\nالمختبر 1.4 · 50 دقيقة\n\nتبني مصفوفة من أربعة مستويات وخمس مراحل (التخزين، والنقل، والمشاركة، والاحتفاظ، والإتلاف)، في كل خلية ضابط مسمّى من كتالوج الهيئة يصلح لذلك المستوى، حتى تنجح في الفحص.\n\n[D1_4_handling.html](https://sdaiaacademy.github.io/lds-dmg-204/labs/D1_4_handling.html)\n\n- [ ] اقرأ الأنظمة وكتالوج الضوابط (8 د)\n- [ ] املأ سطر العام (6 د)\n- [ ] املأ سطر المقيد (10 د)\n- [ ] املأ سطري السري والسري للغاية (14 د)\n- [ ] شغّل الفحص وأصلح (8 د)\n- [ ] جد أصلًا محفوظًا في نظام غير معتمد لمستواه (4 د)\n- [ ] ✱ إضافي: اقترح ضابطًا جديدًا للأرشفة لا يوجد في الكتالوج، وحدد مستوياته ومرحلته","notes":"البداية من files/handling. راقب من ينسخ ضابطًا واحدًا إلى كل الأسطر: الفحص يرفض ما لا يصلح للمستوى. من ينهي مبكرًا يأخذ التمرين الإضافي. الخطوة الأخيرة تمهّد للمختبر 2.1: اطلب من كل مشارك أن يكتب الأصل الذي وجده.","minutes":null,"lo":[]},{"id":"debrief-1-4","n":50,"title":"عشرون خلية، وأربعة فخاخ في الكتالوج","kind":"content","session":4,"hash":"17716857","md":"#### [day1#debrief-1-4] عشرون خلية، وأربعة فخاخ في الكتالوج\n\n*بعد المختبر 1.4*\n\n- **الفخاخ.**\n  - تشفير القرص ضابطًا وحيدًا\n  - رابط في المنصة السحابية، وإتاحة لأي موظف: للعام فقط\n  - احتفاظ بلا حد: لا يصلح لأي مستوى\n- **الإلزامي.**\n  - العلامة، وجدول الاحتفاظ، وتمزيق الورق: كل الأسطر\n  - الإتلاف المعتمد المسجل: من المقيد\n  - الأرشفة المشفرة ومحو الوسائط: من السري\n\n> **فوق السقف.** تصميم أنظمة الحماية سري، ومحفوظ اليوم في مخزن الملفات المعتمد حتى المقيد.","notes":"من الحل المرجعي: الفحص يجد 20 خلية سليمة من 20. الأصل فوق السقف هو A14 (المصدران F13 وF14)، ويعود في المختبر 2.1 استثناءً بضابط تعويضي وتاريخ انتهاء.","minutes":null,"lo":["LO2"]},{"id":"wrap-up","n":51,"title":"ثلاثة أمور تبقى معك","kind":"content","session":4,"hash":"ec3cb508","md":"#### [day1#wrap-up] ثلاثة أمور تبقى معك\n\n*خلاصة اليوم 1*\n\n- **الأصل قبل المستوى.** مالك واحد وغرض واحد، والنسخ مواقع له بمستواه.\n- **المبرر قبل الاتفاق.** من يتضرر وكيف ولماذا ليس الأدنى، والتجميع يُقيَّم كله.\n- **الضابط يتبع المستوى.** لكل خلية ضابط مسمّى، ولكل نظام سقف.","notes":"اطلب من كل مشارك جملة واحدة: ما الذي سيغيره في حصر إدارته غدًا؟","minutes":null,"lo":[]},{"id":"next","n":52,"title":"اليوم 2: السجل والآلة","kind":"content","session":4,"hash":"ff16671f","md":"#### [day1#next] اليوم 2: السجل والآلة\n\n*التالي*\n\nنسجل قرارات اليوم باعتمادها واستثناءاتها، ثم نقيس أين يخطئ الوسم الآلي. أكمل ما لم تنهه من المختبرات، واقرأ قسم الأدوار في سياسة التصنيف.","notes":"ذكّر بالتعلم الذاتي الموجّه: صفحة التدريب فيها أسئلة على اليوم الأول. ومساعد الذكاء الاصطناعي مسموح للشرح فقط، دون لصق أي شيء من الملفات.","minutes":null,"lo":[]}],"activities":[{"id":"check-scope-q1","slide":"check-scope","type":"single","prompt":"في مجلد محللة في قطاع الجودة ملف CSV صدّرته من جدول نتائج الفحص في نظام المختبرات قبل شهرين، ولم يُسجل في أي مكان. كيف يدخل الحصر؟","options":[{"key":"أ","text":"أصل جديد يصنفه القطاع وحده لأنه ملف مستقل"},{"key":"ب","text":"ليس أصلًا، لأنه ملف عمل مؤقت لمحللة"},{"key":"ج","text":"موقع للأصل نفسه، يُسجل ثم يُنقل أو يُتلف"},{"key":"د","text":"بيانات شخصية للمحللة، فلا تُحصر مع بيانات القطاع"}],"correct":[2],"explanation":"النسخة موقع للأصل، لها مستواه وضوابطه. تسجيلها يجعل نقلها أو إتلافها قرارًا يُراجع.","misconceptions":["يعامل التصدير أصلًا جديدًا، فيصنف نسخة البيانات نفسها مرتين وربما بمستويين","يحذف من الحصر مكانًا فيه بيانات حقيقية، فيبقى بلا ضابط","","يخلط بين مكان الملف ومالك البيانات: المجلد للمحللة والبيانات للقطاع"],"lo":["LO1"]},{"id":"check-impact-q1","slide":"check-impact","type":"single","prompt":"جدول في قطاع الجودة بنتائج الفحص الطبي الدوري لثلاثين فنيًا، بأسمائهم. كشفه يضر بكل فني ضررًا محدودًا يُتدارك. ما المستوى؟","options":[{"key":"أ","text":"مقيد، لأن نظام حماية البيانات الشخصية يمنع الإفصاح عنها"},{"key":"ب","text":"سري، لأن البيانات الصحية بيانات حساسة في النظام"},{"key":"ج","text":"عام، لأن الأثر منخفض ومنفعة الشفافية أكبر"},{"key":"د","text":"سري للغاية، لأن الفحص الطبي يمس السلامة"}],"correct":[0],"explanation":"الأثر منخفض، والخطوة 4 تحسم: نظام يمنع الإفصاح، فهو مقيد، ومثال السياسة «الملف الطبي للفرد».","misconceptions":["","يجعل البيانات الصحية سرية بطبيعتها، والمستوى يقرره حجم الأثر","يقفز إلى الخطوة 5 قبل الخطوة 4، والنظام يمنع الإفصاح هنا","يرفع إلى أعلى المستويات بلا أثر وطني يبرر ذلك"],"lo":["LO1"]},{"id":"check-reconcile-q1","slide":"check-reconcile","type":"single","prompt":"لوحة في قطاع الجودة تجمع عدد العينات المفحوصة يوميًا (عام) مع قائمة الفنيين المناوبين بأسمائهم (مقيد). لا يكشف اجتماعهما شيئًا غير ما في كل منهما. ما مستوى اللوحة؟","options":[{"key":"أ","text":"عام، لأن أغلب ما في اللوحة أعداد منشورة"},{"key":"ب","text":"سري، لأن كل تجميع يرفع المستوى درجة"},{"key":"ج","text":"بين العام والمقيد، فتُنشر الأعداد وتُحجب الأسماء"},{"key":"د","text":"مقيد، أعلى المكوّنين، ولا أثر جديد يرفعه"}],"correct":[3],"explanation":"الحد الأدنى أعلى المكوّنين، والتقييم لم يجد أثرًا جديدًا يرفعه. لو أردت نشر الأعداد، فافصلها في أصل عام.","misconceptions":["يأخذ أغلب المحتوى بدل أعلاه، ومبدأ أعلى مستوى عكس ذلك","يرفع لمجرد التجميع، مع أنه لا معلومة جديدة ظهرت","يبحث عن حل وسط، والسياسة لا تعرف المتوسط بين المستويات",""],"lo":["LO1"]},{"id":"check-handling-q1","slide":"check-handling","type":"single","prompt":"في مصفوفة قطاع الجودة، خلية «سري × التخزين» فيها ضابط واحد: «تشفير القرص الصلب لأجهزة الفنيين». ما الذي ينقصها أولًا؟","options":[{"key":"أ","text":"الإتلاف بأحدث طرق محو الوسائط المعتمدة"},{"key":"ب","text":"مكان معتمد للسري، بقائمة وصول مسماة"},{"key":"ج","text":"تشفير أقوى للقرص نفسه"},{"key":"د","text":"علامة الحماية في رأس كل ملف فقط"}],"correct":[1],"explanation":"التخزين يُعرف أولًا بالمكان المعتمد للمستوى ومن يصل إليه؛ التشفير طبقة فوقه.","misconceptions":["يضيف ضابطًا من مرحلة أخرى، والخلية للتخزين","","يظن أن التشفير الأقوى يغني عن تحديد أين تُحفظ البيانات ومن يصل إليها","يخلط بين العلامة والحماية: العلامة لازمة، لكنها لا تحدد مكان الحفظ"],"lo":["LO2"]}],"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":"day1.md","llms":"../llms.txt"},"tasks":[],"tools":[]},"bridge":{"allowedOrigins":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

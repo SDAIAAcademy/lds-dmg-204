@@ -1,0 +1,119 @@
+{
+ "assets": {
+  "A01": {
+   "level": "مقيد",
+   "group": "ب",
+   "stored_in": "S1",
+   "needs_exception": false
+  },
+  "A02": {
+   "level": "مقيد",
+   "group": "ب",
+   "stored_in": "S1",
+   "needs_exception": false
+  },
+  "A03": {
+   "level": "سري",
+   "group": "",
+   "stored_in": "S1",
+   "needs_exception": false
+  },
+  "A04": {
+   "level": "سري",
+   "group": "",
+   "stored_in": "S1",
+   "needs_exception": false
+  },
+  "A05": {
+   "level": "سري للغاية",
+   "group": "",
+   "stored_in": "S7",
+   "needs_exception": false
+  },
+  "A06": {
+   "level": "سري",
+   "group": "",
+   "stored_in": "S2",
+   "needs_exception": false
+  },
+  "A10": {
+   "level": "مقيد",
+   "group": "أ",
+   "stored_in": "S2",
+   "needs_exception": false
+  },
+  "A13": {
+   "level": "مقيد",
+   "group": "ج",
+   "stored_in": "S3",
+   "needs_exception": false
+  },
+  "A14": {
+   "level": "سري",
+   "group": "",
+   "stored_in": "S3",
+   "needs_exception": true
+  },
+  "A16": {
+   "level": "مقيد",
+   "group": "ج",
+   "stored_in": "S3",
+   "needs_exception": false
+  },
+  "A17": {
+   "level": "عام",
+   "group": "",
+   "stored_in": "S3",
+   "needs_exception": false
+  },
+  "A18": {
+   "level": "مقيد",
+   "group": "أ",
+   "stored_in": "S2",
+   "needs_exception": false
+  }
+ },
+ "owner": "وائل المطوع",
+ "reviewer": "لينا الفرج",
+ "classified_on": "2026-11-02",
+ "trigger_types": [
+  "مدة بعد الإنشاء",
+  "مدة بعد آخر استخدام",
+  "تاريخ محدد",
+  "حدث"
+ ],
+ "disputes": {
+  "D1": {
+   "interim": "مقيد"
+  },
+  "D2": {
+   "interim": "مقيد"
+  }
+ },
+ "controls": [
+  "HC-01",
+  "HC-02",
+  "HC-03",
+  "HC-04",
+  "HC-05",
+  "HC-06",
+  "HC-10",
+  "HC-11",
+  "HC-12",
+  "HC-13",
+  "HC-14",
+  "HC-20",
+  "HC-21",
+  "HC-22",
+  "HC-23",
+  "HC-24",
+  "HC-30",
+  "HC-31",
+  "HC-32",
+  "HC-33",
+  "HC-40",
+  "HC-41",
+  "HC-42",
+  "HC-43"
+ ]
+}

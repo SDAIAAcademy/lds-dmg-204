@@ -1,0 +1,164 @@
+{
+ "A01": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "أنشطة الجهات",
+  "sub_category": "أعمال الجهات الخاصة",
+  "group": "ب",
+  "accept": []
+ },
+ "A02": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "أنشطة الجهات",
+  "sub_category": "أعمال الجهات الخاصة",
+  "group": "ب",
+  "accept": []
+ },
+ "A03": {
+  "level": "سري",
+  "impact": "متوسط",
+  "category": "المصلحة الوطنية",
+  "sub_category": "الاقتصاد الوطني",
+  "group": "",
+  "accept": []
+ },
+ "A04": {
+  "level": "سري",
+  "impact": "متوسط",
+  "category": "المصلحة الوطنية",
+  "sub_category": "البنى التحتية الوطنية",
+  "group": "",
+  "accept": []
+ },
+ "A05": {
+  "level": "سري للغاية",
+  "impact": "عالي",
+  "category": "المصلحة الوطنية",
+  "sub_category": "الأمن الوطني والنظام العام",
+  "group": "",
+  "accept": []
+ },
+ "A06": {
+  "level": "سري",
+  "impact": "متوسط",
+  "category": "المصلحة الوطنية",
+  "sub_category": "الاقتصاد الوطني",
+  "group": "",
+  "accept": []
+ },
+ "A07": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "أنشطة الجهات",
+  "sub_category": "أعمال الجهات الخاصة",
+  "group": "ب",
+  "accept": []
+ },
+ "A08": {
+  "level": "عام",
+  "impact": "لا يوجد أثر",
+  "category": "لا يوجد",
+  "sub_category": "لا يوجد",
+  "group": "",
+  "accept": []
+ },
+ "A09": {
+  "level": "عام",
+  "impact": "لا يوجد أثر",
+  "category": "لا يوجد",
+  "sub_category": "لا يوجد",
+  "group": "",
+  "accept": []
+ },
+ "A10": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "المصلحة الوطنية",
+  "sub_category": "الاقتصاد الوطني",
+  "group": "أ",
+  "accept": []
+ },
+ "A11": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "المصلحة الوطنية",
+  "sub_category": "مهام الجهات الحكومية",
+  "group": "ج",
+  "accept": []
+ },
+ "A12": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "أنشطة الجهات",
+  "sub_category": "أعمال الجهات الخاصة",
+  "group": "ب",
+  "accept": []
+ },
+ "A13": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "المصلحة الوطنية",
+  "sub_category": "مهام الجهات الحكومية",
+  "group": "ج",
+  "accept": []
+ },
+ "A14": {
+  "level": "سري",
+  "impact": "متوسط",
+  "category": "المصلحة الوطنية",
+  "sub_category": "البنى التحتية الوطنية",
+  "group": "",
+  "accept": [
+   "مقيد"
+  ]
+ },
+ "A15": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "الأفراد",
+  "sub_category": "الخصوصية",
+  "group": "ب",
+  "accept": []
+ },
+ "A16": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "المصلحة الوطنية",
+  "sub_category": "مهام الجهات الحكومية",
+  "group": "ج",
+  "accept": []
+ },
+ "A17": {
+  "level": "عام",
+  "impact": "منخفض",
+  "category": "المصلحة الوطنية",
+  "sub_category": "الاقتصاد الوطني",
+  "group": "",
+  "accept": []
+ },
+ "A18": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "المصلحة الوطنية",
+  "sub_category": "الاقتصاد الوطني",
+  "group": "أ",
+  "accept": []
+ },
+ "A19": {
+  "level": "مقيد",
+  "impact": "منخفض",
+  "category": "الأفراد",
+  "sub_category": "الخصوصية",
+  "group": "ب",
+  "accept": []
+ },
+ "A20": {
+  "level": "عام",
+  "impact": "لا يوجد أثر",
+  "category": "لا يوجد",
+  "sub_category": "لا يوجد",
+  "group": "",
+  "accept": []
+ }
+}

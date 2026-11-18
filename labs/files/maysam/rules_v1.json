@@ -1,0 +1,53 @@
+{
+ "name": "rules_v1",
+ "normalise_arabic": false,
+ "pattern": [
+  {
+   "name": "ten_digit_number",
+   "regex": "(?<![0-9])[0-9]{10}(?![0-9])",
+   "level": "مقيد"
+  },
+  {
+   "name": "iban",
+   "regex": "SA[0-9]{22}",
+   "level": "مقيد"
+  },
+  {
+   "name": "email",
+   "regex": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+   "level": "مقيد"
+  }
+ ],
+ "keyword": [
+  {
+   "name": "top_secret_words",
+   "terms": [
+    "خطة السحب",
+    "drawdown plan"
+   ],
+   "level": "سري للغاية"
+  },
+  {
+   "name": "secret_words",
+   "terms": [
+    "المخزون الاستراتيجي",
+    "مستوى المخزون",
+    "مذكرة التفاهم",
+    "stock level",
+    "strategic reserve",
+    "memorandum of understanding"
+   ],
+   "level": "سري"
+  },
+  {
+   "name": "restricted_words",
+   "terms": [
+    "عرض سعر",
+    "quotation",
+    "مكافأة",
+    "bonus"
+   ],
+   "level": "مقيد"
+  }
+ ]
+}

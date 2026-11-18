@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-ax="lab" data-track="executives">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المختبر 2.2 · قياس مسار الوسم الآلي · تصنيف البيانات في التطبيق العملي</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="D2_2_maysam.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="top"><div class="logo"></div><nav><a href="../index.html">صفحة المقرر</a><a href="../slides/day2.html#lab-2-2">العودة إلى الشرائح</a></nav></div>
+<span class="tag">المختبر 2.2</span>
+<h1>قياس مسار الوسم الآلي</h1>
+<p>تشغّل مِيسَم على مئتي عنصر اصطناعي وتقيس إغفاله وإنذاره الكاذب لكل مستوى ولغة مقارنة بقرارات الملاك، ثم تكتب قواعد توجيه إلى المراجعة البشرية وسياسة مراجعة.</p>
+<div class="meta"><span>50 دقيقة</span><span>اليوم 2</span><span>الجلسة 2: التصنيف المدعوم آليًا</span></div>
+</div>
+</header>
+<main class="wrap">
+<article class="lab" data-lab="2.2">
+<div class="box goal">
+  <h3>ستخرج من هذا المختبر بـ</h3>
+  <ul>
+    <li>معدلا الإغفال والإنذار الكاذب لمِيسَم لكل مستوى ولكل لغة، مقارنة بقرارات الملاك على مئتي عنصر.</li>
+    <li>قواعد توجيه إلى المراجعة البشرية بمعتمِد مسمّى لكل قاعدة، وسياسة مراجعة في خمسة أسطر.</li>
+  </ul>
+</div>
+
+<h2>ما تحتاجه</h2>
+<div class="files">
+  <a href="files/maysam/items.xlsx" download><b>maysam/items.xlsx</b><span>مئتا عنصر اصطناعي، ومستوى المالك لكل منها، واقتراح مرحلة النموذج المسجل.</span></a>
+  <a href="files/maysam/rules_v1.json"><b>maysam/rules_v1.json</b><span>قواعد الأنماط والكلمات في مِيسَم كما تعمل اليوم.</span></a>
+  <a href="files/maysam/routing.xlsx" download><b>maysam/routing.xlsx</b><span>ورقة قواعد التوجيه: فيها قاعدة واحدة تقبل كل شيء.</span></a>
+</div>
+<div class="callout note small"><b>ما الذي يعمل هنا.</b> قواعد الأنماط والكلمات تعمل فعلًا على نص كل عنصر. اقتراحات مرحلة النموذج مسجلة سلفًا بديلًا مكتوبًا للمقرر، ولا يُستدعى أي نموذج: ما تقيسه عنها يخص هذا البديل. ولا تُلصق أي عنصر في أداة ذكاء اصطناعي.</div>
+
+<h2>الخطوات</h2>
+
+<div class="step">
+  <h3>1 · شغّل مِيسَم <span class="min">6 د</span></h3>
+  <p>كم عنصرًا قررته كل مرحلة؟ المرحلة الأولى التي تطابق تقرر، وأعلى مستوى فيها يفوز.</p>
+  <pre class="code"><code>uv run kit/maysam.py</code></pre>
+</div>
+
+<div class="step">
+  <h3>2 · القياس <span class="min">10 د</span></h3>
+  <p>اقرأ الجدول لكل مستوى، ثم لكل لغة. الإغفال: الآلة أقل من المالك. الإنذار الكاذب: الآلة أعلى. المقام دائمًا عدد العناصر في المستوى المرجعي.</p>
+  <pre class="code"><code>uv run kit/measure.py</code></pre>
+</div>
+
+<div class="step">
+  <h3>3 · لماذا أغفل <span class="min">10 د</span></h3>
+  <p>افتح <code>out/maysam_labels.json</code> وابحث عن العناصر التي أغفلها في السري والسري للغاية. لكل منها: أي مرحلة قررت، ولماذا لم تلتقطه القواعد؟</p>
+</div>
+
+<div class="step">
+  <h3>4 · قواعد التوجيه <span class="min">14 د</span></h3>
+  <p>اكتب في <code>routing.xlsx</code> قواعد تُرسل إلى المراجعة البشرية ما يلزم، والقاعدة الأخيرة شاملة. لكل قاعدة معتمِد مسمّى. شغّل حتى تنجح: لا إغفال في المستويين الأعليين يمر، وحمل المراجعة نصف العناصر أو أقل.</p>
+  <pre class="code"><code>uv run kit/route.py</code></pre>
+</div>
+
+<div class="step">
+  <h3>5 · سياسة المراجعة <span class="min">10 د</span></h3>
+  <p>خمسة أسطر: من يعتمد ماذا، وما يراجعه إنسان دائمًا، ومتى يُعاد القياس، وما يُبلَّغ قبل توسيع الاستخدام، وما يحفظه سجل التدقيق.</p>
+</div>
+
+<div class="step stretch">
+  <h3>✱ تمرين إضافي</h3>
+  <p>انسخ <code>rules_v1.json</code> إلى <code>rules_v2.json</code>، واجعل <code>normalise_arabic</code> صحيحًا (<code>true</code>)، وأعد القياس على النسخة الجديدة. ما الذي تحسن، وما الذي بقي؟</p>
+</div>
+
+<h2>أسئلة تحقق</h2>
+<ol class="checks">
+  <li>ما معدل الإغفال في السري، وعلى أي مقام؟ ولماذا لا تكفي نسبة التطابق التام وحدها؟</li>
+  <li>من أين جاءت أكثر الإنذارات الكاذبة في العام؟</li>
+  <li>كم عنصرًا أرسلت قواعدك إلى الناس، وما الإغفال الذي بقي في المقيد؟</li>
+</ol>
+
+<details class="instructor">
+  <summary>للمدرّب</summary>
+  <ul>
+    <li>المرجع: <code>solutions/D2_2_maysam.md</code> و<code>solutions/reference/routing_reference.xlsx</code>. التطابق 161 من 200؛ الإغفال في السري 7 من 32، وفي السري للغاية 1 من 8؛ الإنذار الكاذب في العام 27 من 70.</li>
+    <li>الإغفالات العشرة ثلاثة أسباب: جوال في نص سري جعل المرحلة الأولى تقرر «مقيد» (M055 وM161)، وصيغ عربية لا تطابقها الكلمات أو أرقام بخانات عربية هندية ومسافات (خمسة عناصر)، وأخطاء النموذج البديل (ثلاثة).</li>
+    <li>عشرون إنذارًا كاذبًا من نمط «عشر خانات» على الأرقام المجانية وأرقام المنافسات المنشورة.</li>
+    <li>قواعد مرجعية تنجح بحمل 80 من 200. اقبل غيرها إن نجحت في الفحص وكان لكل قاعدة معتمِد. ارفض «كل شيء إلى المراجعة»: الفحص يرفض أكثر من النصف.</li>
+  </ul>
+</details>
+</article>
+<nav class="pager"><a href="D2_1_register.html" rel="prev">→ المختبر السابق</a></nav>
+</main>
+<footer><div class="wrap">أكاديمية سدايا · مسار التنفيذيين والقادة · تصنيف البيانات في التطبيق العملي<br><span class="muted">إصدار المقرر 2027.1.0 · المحرّك 1.0.0 · بُني في ⁦2026-11-18⁩ · الإيداع 0a3c3bb</span></div></footer>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-18T00:44:44Z","version":"2027.1.0","commit":"0a3c3bb"},"course":{"id":"lds-dmg-204","code":"LDS-DMG-204","title":"تصنيف البيانات في التطبيق العملي","track":"executives","lang":"ar","dir":"rtl","url":"https://sdaiaacademy.github.io/lds-dmg-204/","repo":"SDAIAAcademy/lds-dmg-204","home":"../index.html"},"lab":{"id":"2.2","title":"قياس مسار الوسم الآلي","summary":"تشغّل مِيسَم على مئتي عنصر اصطناعي وتقيس إغفاله وإنذاره الكاذب لكل مستوى ولغة مقارنة بقرارات الملاك، ثم تكتب قواعد توجيه إلى المراجعة البشرية وسياسة مراجعة.","minutes":50,"day":2,"unit":"اليوم 2","session":2,"deck":"../slides/day2.html#lab-2-2","prev":"D2_1_register.html","next":null,"alt":{}},"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":null,"llms":"../llms.txt"},"tasks":[],"tools":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-ax="lab" data-track="executives">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المختبر 2.1 · مدخلات السجل ومذكرتا التصعيد · تصنيف البيانات في التطبيق العملي</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="D2_1_register.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="top"><div class="logo"></div><nav><a href="../index.html">صفحة المقرر</a><a href="../slides/day2.html#lab-2-1">العودة إلى الشرائح</a></nav></div>
+<span class="tag">المختبر 2.1</span>
+<h1>مدخلات السجل ومذكرتا التصعيد</h1>
+<p>تكتب مدخلات سجل التصنيف لاثني عشر أصلًا من قرارات اليوم الأول، باعتماد المالك والمراجعة ومحفزات رفع التصنيف واستثناء موثق، ثم مذكرة تصعيد لكل نزاع من النزاعين.</p>
+<div class="meta"><span>50 دقيقة</span><span>اليوم 2</span><span>الجلسة 1: السجل: الاعتماد والاستثناء ورفع التصنيف</span></div>
+</div>
+</header>
+<main class="wrap">
+<article class="lab" data-lab="2.1">
+<div class="box goal">
+  <h3>ستخرج من هذا المختبر بـ</h3>
+  <ul>
+    <li>مدخلات سجل التصنيف لاثني عشر أصلًا: المستوى، والمصنِّف، والمراجِع وتاريخ المراجعة، واعتماد المالك، ومحفز رفع التصنيف وموعده.</li>
+    <li>استثناء موثق للأصل المحفوظ في نظام غير معتمد لمستواه، ومذكرة تصعيد لكل نزاع من النزاعين.</li>
+  </ul>
+</div>
+
+<h2>ما تحتاجه</h2>
+<div class="files">
+  <a href="files/register/decisions.xlsx" download><b>register/decisions.xlsx</b><span>قرارات اليوم الأول لاثني عشر أصلًا، ومكان حفظ كل أصل، والأنظمة، وكتالوج الضوابط.</span></a>
+  <a href="files/register/register.xlsx" download><b>register/register.xlsx</b><span>ورقة السجل وورقة مذكرتي التصعيد.</span></a>
+  <a href="files/register/disputes.txt"><b>register/disputes.txt</b><span>النزاعان: من أثار كلًّا منهما، وما المطروح.</span></a>
+</div>
+<p class="small">البداية ملف القرارات، فلا تحتاج نتائج اليوم الأول. التواريخ بصيغة سنة-شهر-يوم.</p>
+
+<h2>الخطوات</h2>
+
+<div class="step">
+  <h3>1 · القرارات والأنظمة والنزاعان <span class="min">6 د</span></h3>
+  <p>اقرأ ورقة <code>decisions</code> وورقة <code>systems</code>. قارن مستوى كل أصل بسقف النظام الذي يُحفظ فيه.</p>
+</div>
+
+<div class="step">
+  <h3>2 · الاعتماد والمراجعة <span class="min">12 د</span></h3>
+  <p>لكل أصل: المالك، والمستوى، ومن صنّف وتاريخه، ثم المراجِع من مكتب إدارة البيانات وتاريخ مراجعته خلال شهر، والمستوى بعد المراجعة، واعتماد ممثل بيانات الأعمال وتاريخه.</p>
+</div>
+
+<div class="step">
+  <h3>3 · محفزات رفع التصنيف <span class="min">10 د</span></h3>
+  <p>لكل أصل غير عام اختر نوع المحفز (مدة بعد الإنشاء، مدة بعد آخر استخدام، تاريخ محدد، حدث)، واكتبه في جملة، وضع تاريخه.</p>
+</div>
+
+<div class="step">
+  <h3>4 · الاستثناء <span class="min">8 د</span></h3>
+  <p>للأصل المحفوظ فوق سقف نظامه: الضابط غير المستوفى، والسبب، وضابط تعويضي من الكتالوج، وتاريخ انتهاء خلال تسعين يومًا، والمعتمِد. المعتمِد مستقل: لا يعتمد المالك أو المصنِّف استثناءً على أصله.</p>
+</div>
+
+<div class="step">
+  <h3>5 · مذكرتا التصعيد <span class="min">10 د</span></h3>
+  <p>في ورقة <code>escalations</code>: موقف كل طرف ودليله، ونقطة السياسة محل الخلاف، والمستوى المؤقت حتى القرار، والجهة التي يُصعَّد إليها، وموعد القرار.</p>
+</div>
+
+<div class="step">
+  <h3>6 · الفحص <span class="min">4 د</span></h3>
+  <pre class="code"><code>uv run kit/register_check.py files/register/register.xlsx</code></pre>
+</div>
+
+<div class="step stretch">
+  <h3>✱ تمرين إضافي</h3>
+  <p>اكتب ما يتغير في السجل يوم يُعلن عن المنافسة ويصير A16 عامًا: أي حقل، ومن يعتمد، وأي ضابط يسقط.</p>
+</div>
+
+<h2>أسئلة تحقق</h2>
+<ol class="checks">
+  <li>لماذا لا يكون المراجِع هو من صنّف؟</li>
+  <li>أي أصل احتاج استثناءً، ومتى ينتهي، وما الذي يحدث إن لم يُنقل قبل ذلك؟</li>
+  <li>في النزاع الأول، لماذا لا يحتاج طلب أروى تغيير المستوى؟</li>
+</ol>
+
+<details class="instructor">
+  <summary>للمدرّب</summary>
+  <ul>
+    <li>المرجع: <code>solutions/reference/register_reference.xlsx</code> و<code>solutions/D2_1_register.md</code>.</li>
+    <li>الاستثناء اللازم الوحيد: A14 (سري) في مخزن الملفات S3 المعتمد حتى المقيد. A13 وA16 وA17 في S3 أيضًا، ومستوياتها لا تتجاوز سقفه.</li>
+    <li>D1: المشاركة مع وزارة أخرى طريقها اتفاقية مشاركة للمقيد (HC-21)، لا تصنيف الأسعار عامة. D2: مجموعة مشتركة بلا مالك واحد؛ المستوى المؤقت الأعلى (مقيد)، والتصعيد إلى مكتب إدارة البيانات، ثم تعيين مالك.</li>
+    <li>الخطأ الأكثر شيوعًا: مراجعة بعد أكثر من شهر، أو مراجِع هو المالك نفسه، أو استثناء يعتمده وائل المطوع لأصله. المعتمِد في المرجع لينا الفرج من مكتب إدارة البيانات.</li>
+  </ul>
+</details>
+</article>
+<nav class="pager"><a href="D1_4_handling.html" rel="prev">→ المختبر السابق</a><a href="D2_2_maysam.html" rel="next">المختبر التالي ←</a></nav>
+</main>
+<footer><div class="wrap">أكاديمية سدايا · مسار التنفيذيين والقادة · تصنيف البيانات في التطبيق العملي<br><span class="muted">إصدار المقرر 2027.1.0 · المحرّك 1.0.0 · بُني في ⁦2026-11-18⁩ · الإيداع 0a3c3bb</span></div></footer>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-18T00:44:44Z","version":"2027.1.0","commit":"0a3c3bb"},"course":{"id":"lds-dmg-204","code":"LDS-DMG-204","title":"تصنيف البيانات في التطبيق العملي","track":"executives","lang":"ar","dir":"rtl","url":"https://sdaiaacademy.github.io/lds-dmg-204/","repo":"SDAIAAcademy/lds-dmg-204","home":"../index.html"},"lab":{"id":"2.1","title":"مدخلات السجل ومذكرتا التصعيد","summary":"تكتب مدخلات سجل التصنيف لاثني عشر أصلًا من قرارات اليوم الأول، باعتماد المالك والمراجعة ومحفزات رفع التصنيف واستثناء موثق، ثم مذكرة تصعيد لكل نزاع من النزاعين.","minutes":50,"day":2,"unit":"اليوم 2","session":1,"deck":"../slides/day2.html#lab-2-1","prev":"D1_4_handling.html","next":"D2_2_maysam.html","alt":{}},"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":null,"llms":"../llms.txt"},"tasks":[],"tools":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>
