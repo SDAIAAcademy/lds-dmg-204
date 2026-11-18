@@ -5,7 +5,8 @@
 Checks what a register entry must hold (the national standard's data register fields and the
 Authority's rules): the level of the decision, owner approval, a reviewer who is not the
 classifier, a review within one month, a declassification trigger for every non-public asset,
-and an exception (with a compensating control, an expiry within 90 days and an approver)
+and an exception (with a compensating control, an expiry within 90 days and an approver who is
+neither the owner nor the classifier)
 wherever an asset sits in a system not approved for its level.
 """
 from __future__ import annotations
@@ -68,6 +69,8 @@ def main() -> int:
             comp = re.findall(r"HC-\d\d", r.get("compensating_control", ""))
             if not (r.get("exception_control") and r.get("exception_reason") and comp and r.get("exception_approver")):
                 K.fix(f"{aid}: محفوظ في نظام غير معتمد لمستواه بلا استثناء كامل (الضابط، والسبب، وضابط تعويضي من الكتالوج، والمعتمِد)")
+            elif r["exception_approver"].strip() in (key["owner"], r["classified_by"].strip(), r["owner"].strip()):
+                K.fix(f"{aid}: معتمِد الاستثناء هو المالك أو المصنِّف نفسه: الفصل بين المهام يطلب معتمِدًا مستقلًا")
             elif not exp or not app or not 0 < (exp - app).days <= 90:
                 K.fix(f"{aid}: الاستثناء بلا تاريخ انتهاء خلال 90 يومًا")
             elif any(x not in key["controls"] for x in comp):

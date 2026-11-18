@@ -67,6 +67,17 @@ def lab_2_1() -> None:
     expect(["kit/register_check.py", "files/register/register.xlsx"], 1, "حقول فارغة")
     t = expect(["kit/register_check.py", "solutions/reference/register_reference.xlsx"], 0, "A14: استثناء موثق", "RESULT: PASS")
     print(t.splitlines()[-1])
+    # the owner may not approve his own exception: the reference with the owner as approver must fail
+    import openpyxl
+    wb = openpyxl.load_workbook(LABS / "solutions" / "reference" / "register_reference.xlsx")
+    ws = wb["register"]
+    head = [c.value for c in ws[1]]
+    for row in ws.iter_rows(min_row=2):
+        if row[0].value == "A14":
+            row[head.index("exception_approver")].value = row[head.index("owner")].value
+    (LABS / "out").mkdir(exist_ok=True)
+    wb.save(LABS / "out" / "register_self_approved.xlsx")
+    expect(["kit/register_check.py", "out/register_self_approved.xlsx"], 1, "معتمِد الاستثناء هو المالك")
 
 
 def lab_2_2() -> None:
